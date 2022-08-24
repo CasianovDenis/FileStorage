@@ -1,0 +1,52 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="~/css/Home.css" rel="stylesheet" />
+    <script src="~/js/Home.js" ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body>
+    <div id="text">
+        Welcome to Drive Online
+        <br />
+        Please Log in in you account.If you don't have any account you can create him.
+        <br />
+        <button class="btn btn-primary" >SignIn</button>
+        <button class="btn btn-primary">SignUp</button>
+
+    </div>
+
+    <div id="DriveOnline" style="min-height:800px; ">
+
+
+    </div>
+
+    <div id="text">
+        <img class="img_size" src="~/icon/logo.png">Drive online is a cloud storage where you can save you data.
+        <br />
+        <img class="img_size" src="~/icon/cloud_save.png" /> We use MongoDB for save you data safely.
+    </div>
+
+    <div id="MongoDB" style="min-height:800px;">
+        @*@if (ViewBag.test != null)
+            {
+                foreach (var item in ViewBag.test)
+                {
+                    <h1>@item.name</h1>
+                    <h1>@item.surname</h1>
+                }
+            }
+            @ViewData["Error"]*@
+
+
+
+    </div>
+</body>
+</html>
