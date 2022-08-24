@@ -7,34 +7,35 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
     <link href="~/css/Home.css" rel="stylesheet" />
     <script src="~/js/Home.js" ></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
 </head>
 
 <body>
     <div id="text">
-        Welcome to Drive Online
+        <text>
+            Welcome to Drive Online
+        </text>
         <br />
-        Please Log in in you account.If you don't have any account you can create him.
+        Please Log in in you account.
         <br />
-        <button class="btn btn-primary" >SignIn</button>
-        <button class="btn btn-primary">SignUp</button>
+        If you don't have any account you can create him.
+        <br />
 
+        <form asp-action="Redirect_SignIn">
+            <input type="submit"  class="btn btn-primary" style="margin-top:15px;float:left;" value="SignIn" />
+        </form>
+        <form asp-action="Redirect_SignUp">
+            <input type="submit"  class="btn btn-primary" style="margin-top:15px;margin-left:10px;" value="SignUp" />
+        </form>
+       
     </div>
 
-    <div id="DriveOnline" style="min-height:800px; ">
 
 
-    </div>
-
-    <div id="text">
-        <img class="img_size" src="~/icon/logo.png">Drive online is a cloud storage where you can save you data.
-        <br />
-        <img class="img_size" src="~/icon/cloud_save.png" /> We use MongoDB for save you data safely.
-    </div>
-
-    <div id="MongoDB" style="min-height:800px;">
+    <div id="MongoDB" style="min-height:400px;">
         @*@if (ViewBag.test != null)
             {
                 foreach (var item in ViewBag.test)
@@ -46,7 +47,24 @@
             @ViewData["Error"]*@
 
 
+        <img id="start_img" src="/background_img/business--rocket-illustration.webp" style="float:right;" />
 
+        @*<img src="~/background_img/professor-illustration.webp" />*@
+    </div>
+
+    <div id="text2">
+        <img class="img_size" src="~/icon/logo.png">Drive online is a cloud storage where you can save you data.
+        <br />
+        <img class="img_size" src="~/icon/mongodb.svg" style="margin-top:10px;" /> We use MongoDB for save you data safely.
+        <br />
+        <img class="img_size" src="~/icon/cloud_save.png" style="margin-top:10px;" /> All you data is private.
+        <br />
+        <img class="img_size" src="~/icon/cloud_free.png" style="margin-top:10px;" /> Our application is absolutely free.
+    </div>
+
+    <div id="DriveOnline" style="min-height:300px; ">
+
+        <img id="start_img" src="/background_img/professor-concept.png" style="float:right;" />
     </div>
 </body>
 </html>
