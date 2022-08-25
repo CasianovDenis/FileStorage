@@ -1,0 +1,87 @@
+﻿@model ManageClient.Models.UserData
+@{
+    ViewData["Title"] = "Sign Up Page";
+}
+
+<!Doctype html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="/css/Sing_in_up_style.css">
+
+
+</head>
+<body class="img js-fullheight" style="background-image: url(/background_img/background_signup.jpg)">
+    <section class="ftco-section">
+        <div class="container">
+            <img src="~/icon/return_arrow_white.png" id="return_arrow" style="width: 50px; height: 50px;
+       margin-top: -15%; margin-left: -10%; cursor: pointer;" />
+
+            <div class="row justify-content-center">
+                <div class="col-md-6 col-lg-4">
+                    <div class="login-wrap p-0">
+                        <h3 class="mb-4 text-center">Create account</h3>
+                        <form asp-action="SignUp" class="signin-form">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Username" asp-for="Username">
+                            </div>
+                            <span asp-validation-for="Username" style="color:red;"> </span>
+
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Email" asp-for="Email">
+                            </div>
+                            <span asp-validation-for="Email" style="color:red;"> </span>
+
+                            <div class="form-group">
+                                <input id="password-field" type="password" class="form-control" placeholder="Password"
+                                       asp-for="Password">
+                                <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                                <span asp-validation-for="Password" style="color:red;"> </span>
+
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" class="form-control btn btn-primary submit px-3" value="Create" />
+                            </div>
+                            <div class="form-group d-md-flex">
+                                <div class="w-50">
+                                    <label class="checkbox-wrap checkbox-primary">
+                                        Remember Me
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                                <div class="w-50 text-md-right">
+                                    <a asp-action="SignIn" asp-controller="SignIn" style="color: #fff">Already have account</a>
+                                </div>
+                            </div>
+                        </form>
+                        <p style="color:red;">@ViewData["Error_SignUp"]</p>
+                        <p style="color:green;">@ViewData["Succes_create"]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="/lib/jquery/dist/jquery.js"></script>
+    <script src="~/js/SignIn.js"></script>
+    <script src="/js/popper.js"></script>
+
+    <script src="/js/Sign_in_up.js"></script>
+
+</body>
+</html>
+
+<style>
+
+    #return_arrow:hover {
+        transform: scale(1.1);
+    }
+</style>
