@@ -10,17 +10,24 @@ namespace ManageClient.Controllers
 {
     public class SignInController : Controller
     {
-       
+        private IHttpContextAccessor Accessor;
         private readonly ConString _conString;
 
-        public SignInController(ConString conection)
+        public SignInController(ConString conection, IHttpContextAccessor _accessor)
         {
             _conString = conection;
-           
+            this.Accessor = _accessor;
         }
 
         public IActionResult SignIn()
         {
+
+            ViewBag.status_remember = this.Accessor.HttpContext.Request.Cookies["remember"];
+            string status_account = this.Accessor.HttpContext.Request.Cookies["status_account"];
+
+            if (status_account == "online") return RedirectToAction("Account", "Account");
+
+
             ViewBag.hide_layout = "true";
             ViewBag.hide_footer = "true";
             return View();
@@ -29,6 +36,9 @@ namespace ManageClient.Controllers
         [HttpPost]
         public IActionResult SignIn(UserData user)
         {
+            CookieOptions option = new CookieOptions();
+            option.Expires = DateTime.Now.AddDays(1);
+
 
             try
             {
@@ -49,6 +59,8 @@ namespace ManageClient.Controllers
                 {
                     if (dbdata.Password == user.Password)
                     {
+                       
+                        Response.Cookies.Append("status_account", "online", option);
                         return RedirectToAction("Account", "Account");
                     }
                 }
@@ -61,5 +73,17 @@ namespace ManageClient.Controllers
                 return View();
             
         }
-    }
+
+        [HttpPost]
+        public IActionResult Remember(string status)
+        {
+            CookieOptions option = new CookieOptions();
+            option.Expires = DateTime.Now.AddDays(1);
+
+            Response.Cookies.Append("remember", status, option);
+
+            return Ok();
+        }
+
+        }
 }
