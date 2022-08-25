@@ -44,7 +44,8 @@
                                 <div class="w-50">
                                     <label class="checkbox-wrap checkbox-primary">
                                         Remember Me
-                                        <input type="checkbox">
+                                        <input id="remember" type="checkbox">
+                                        
                                         <span class="checkmark"></span>
                                     </label>
                                 </div>
@@ -75,3 +76,36 @@
         transform: scale(1.1);
     }
 </style>
+
+<script>
+    $(document).ready(function(){
+        var status_checbox = '@ViewBag.status_remember';
+
+    if (status_checbox =="checked") {
+
+        $('#remember').prop('checked', true);
+
+    } else
+        if (status_checbox == "unchecked"){
+        $('#remember').prop('checked', false);
+    }
+
+        $('#remember').click(function () {
+            if (status_checbox == "checked") {
+
+                $.post("/SignIn/Remember", { status: 'unchecked' }, function () {
+                    status_checbox = "unchecked";});
+                $('#remember').prop('checked', false);
+
+            } else {
+                $.post("/SignIn/Remember", { status: 'checked' }, function () {
+                    status_checbox = "checked";});
+                $('#remember').prop('checked', true);
+            }
+
+
+
+        });
+
+    });
+</script>
