@@ -59,7 +59,7 @@ namespace ManageClient.Controllers
                 {
                     if (dbdata.Password == user.Password)
                     {
-                       
+                        Response.Cookies.Append("username", user.Username, option);
                         Response.Cookies.Append("status_account", "online", option);
                         return RedirectToAction("Account", "Account");
                     }
