@@ -26,16 +26,6 @@ namespace WebApplication.Controllers
             this.Accessor = _accessor;
         }
 
-        //public async Task<IActionResult> Index(Playlist playlist)
-        //{
-        //    var phones = await _mongoDBService.GetProducts(playlist.name,playlist.surname);
-        //    //var model = new IndexViewModel { Products = phones, Filter = filter };
-        //    ViewBag.test = phones;
-
-        //    ViewBag.hide_layout = "true";
-        //    return View();
-        //}
-
         public IActionResult Index()
         {
             CookieOptions option = new CookieOptions();
