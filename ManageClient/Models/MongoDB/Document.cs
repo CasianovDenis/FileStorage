@@ -2,20 +2,21 @@
 using MongoDB.Bson.Serialization.Attributes;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace WebApplication.Models
 {
-    public class Playlist
+    public class Document
     {
      [BsonId]
      [BsonRepresentation(BsonType.ObjectId)]
         public string _id { get; set; }
-        public string name { get; set; } = null!;
-        public string surname { get; set; } = null!;
+        public string Username { get; set; } = null!;
 
-       
+        public string ImageName { get; set; } = null!;
+        public string ImageUrl { get; set; } // ссылка на изображение
 
     }
 }

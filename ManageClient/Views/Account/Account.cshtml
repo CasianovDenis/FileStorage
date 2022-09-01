@@ -1,5 +1,124 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model ManageClient.Models.FileModel
 @{
+    ViewData["Title"] = "Account Page";
 }
+
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <link rel="stylesheet" href="~/css/Sidebar.css" />
+    <link rel="stylesheet" href="~/css/Account.css" />
+    <script src="/js/Account.js"></script>
+
+
+</head>
+
+<body>
+    <h3>Select file for upload</h3>
+    <div>
+        <button id="file_btn">Select file</button>
+        <form asp-action="AddFile" asp-controller="Account" method="post" enctype="multipart/form-data">
+
+            <input type="file" id="uploadfile" style="display:none" asp-for="file" />
+
+            <br>
+
+
+            <input id="upload_input" type="submit" value="upload" style="display:none" />
+        </form>
+    </div>
+    <hr />
+    @*@if (ViewBag.doc != null)
+        {
+
+            for (int index = 0; index < ViewBag.doc.Count; index++)
+            {
+
+                <embed src="@ViewBag.doc[index]" />
+                @img src="data:image/png;base64,@ViewBag.doc[index]" style="width:100px;height:100px;" />
+                <iframe src="data:text/html,@ViewBag.doc[index]"> </iframe>
+
+
+                    }
+
+                    }*@
+
+    @if (ViewBag.img != null)
+    {
+        for (int index = 0; index < ViewBag.img.Count; index++)
+        {
+            <a class="cards" href="data:image/png;base64,@ViewBag.img[index]" download="@ViewBag.name_img[index]" style="float:left">
+
+                <div class="card" style="width:10rem;">
+
+                    <img src="data:image/png;base64,@ViewBag.img[index]" />
+                    <div class="card-body">
+                        <h6 class="card-title">@ViewBag.name_img[index]</h6>
+                    </div>
+
+                </div>
+            </a>
+
+            @*<a href="data:image/png;base64,@ViewBag.img[index]" download>
+                    <img src="data:image/png;base64,@ViewBag.img[index]" style="width:100px;height:100px;" />
+                </a>*@
+
+        }
+    }
+
+    @if (ViewBag.video != null)
+        {
+            for (int index = 0; index < ViewBag.video.Count; index++)
+            {
+                <a class="cards" href="data:video/mp4;base64,@ViewBag.video[index]" download="@ViewBag.name_video[index]" style="float:left">
+
+                    <div class="card" style="width: 10rem;">
+
+                        <img src="/icon/mp4_icon.png" class="card-img-top">
+                        <div class="card-body">
+                            <h6 class="card-title">@ViewBag.name_video[index]</h6>
+                        </div>
+
+                    </div>
+                </a>
+
+                @*<a href="data:video/mp4;base64,@ViewBag.audio[index]" download>
+                    <img src="/icon/mp4_icon.png" style="width:100px;height:100px;" />
+                </a>*@
+            }
+        }
+
+    @if (ViewBag.audio != null)
+    {
+        for (int index = 0; index < ViewBag.audio.Count; index++)
+        {
+           
+            <a class="cards" href="data:audio/mp3;base64,@ViewBag.audio[index]" download="@ViewBag.name_audio[index]" style="float:left">
+
+                    <div class="card" style="width: 10rem;">
+
+                        <img src="/icon/mp3_icon.png" class="card-img-top">
+                        <div class="card-body">
+                            <h6 class="card-title">@ViewBag.name_audio[index]</h6>
+                        </div>
+
+                    </div>
+                </a>
+            @*<a href="data:audio/mp3;base64,@ViewBag.audio[index]" download="file.mp3">
+                    <div>
+                        <img src="/icon/mp3_icon.png" style="width:100px;height:100px;" />
+                        <h6>@ViewBag.name_audio[index]</h6>
+                    </div>
+                </a>*@
+
+           
+        }
+    }
+    @*@ViewData["test"]
+        <img src="data:image/png;base64,@ViewBag.test" alt="Red dot"/>*@
+
+</body>
+</html>
+
+

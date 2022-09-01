@@ -1,6 +1,7 @@
 ﻿using FluentValidation.AspNetCore;
 using FluentValidation.Results;
 using ManageClient.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -11,16 +12,23 @@ namespace ManageClient.Controllers
 {
     public class SignUpController : Controller
     {
+        private IHttpContextAccessor Accessor;
         private readonly ConString _conString;
 
-        public SignUpController(ConString conection)
+        public SignUpController(ConString conection, IHttpContextAccessor _accessor)
         {
             _conString = conection;
-
+            this.Accessor = _accessor;
         }
 
         public IActionResult SignUp()
         {
+
+            string status_account = this.Accessor.HttpContext.Request.Cookies["status_account"];
+
+            if (status_account == "online") return RedirectToAction("Account", "Account");
+            
+
             ViewBag.hide_layout = "true";
             ViewBag.hide_footer = "true";
             return View();
