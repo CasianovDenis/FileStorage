@@ -8,8 +8,10 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.Unicode;
 using System.Threading.Tasks;
 using WebApplication.Models;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace ManageClient.Controllers
 {
@@ -101,7 +103,7 @@ namespace ManageClient.Controllers
             return View();
         }
 
-      
+       
 
 
         [HttpPost]
@@ -124,6 +126,18 @@ namespace ManageClient.Controllers
                 }
 
             return RedirectToAction("Account", "Account");
+        }
+
+        
+        public ActionResult Exit()
+        {
+            CookieOptions option = new CookieOptions();
+            option.Expires = DateTime.Now.AddDays(1);
+
+            Response.Cookies.Append("username", "", option);
+            Response.Cookies.Append("status_account", "offline", option);
+
+            return RedirectToAction("SignIn", "SignIn");
         }
     }
 }
