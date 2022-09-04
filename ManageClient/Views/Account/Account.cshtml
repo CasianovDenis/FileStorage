@@ -29,63 +29,187 @@
         </form>
     </div>
     <hr />
-    @*@if (ViewBag.doc != null)
+    @if (ViewBag.doc_data != null)
         {
 
-            for (int index = 0; index < ViewBag.doc.Count; index++)
+            for (int index = 0; index < ViewBag.doc_data.Count; index++)
             {
 
-                <embed src="@ViewBag.doc[index]" />
-                @img src="data:image/png;base64,@ViewBag.doc[index]" style="width:100px;height:100px;" />
-                <iframe src="data:text/html,@ViewBag.doc[index]"> </iframe>
+               if (@ViewBag.doc_data[index].type_doc=="pdf")
+    {<a class="cards" href="data:application/pdf;base64,@ViewBag.doc_data[index].base64" download="@ViewBag.doc_data[index].name_doc" style="float:left">
+
+        <div class="card" style="width: 10rem;">
+
+            <img src="/icon/pdf_icon.png" class="card-img-top">
+            <div class="card-body">
+                <h6 class="card-title">@ViewBag.doc_data[index].name_doc</h6>
+            </div>
+
+        </div>
+    </a>}
+    else
+     if (@ViewBag.doc_data[index].type_doc=="txt")
+    {<a class="cards" href="data:application/txt;base64,@ViewBag.doc_data[index].base64" download="@ViewBag.doc_data[index].name_doc" style="float:left">
+
+        <div class="card" style="width: 10rem;">
+
+            <img src="/icon/pdf_icon.png" class="card-img-top">
+            <div class="card-body">
+                <h6 class="card-title">@ViewBag.doc_data[index].name_doc</h6>
+            </div>
+
+        </div>
+    </a>}
+    else
+     if (@ViewBag.doc_data[index].type_doc=="odt")
+    {<a class="cards" href="data:application/odt;base64,@ViewBag.doc_data[index].base64" download="@ViewBag.doc_data[index].name_doc" style="float:left">
+
+        <div class="card" style="width: 10rem;">
+
+            <img src="/icon/pdf_icon.png" class="card-img-top">
+            <div class="card-body">
+                <h6 class="card-title">@ViewBag.doc_data[index].name_doc</h6>
+            </div>
+
+        </div>
+    </a>}
+     else
+     if (@ViewBag.doc_data[index].type_doc=="ppt")
+    {<a class="cards" href="data:application/ppt;base64,@ViewBag.doc_data[index].base64" download="@ViewBag.doc_data[index].name_doc" style="float:left">
+
+        <div class="card" style="width: 10rem;">
+
+            <img src="/icon/pdf_icon.png" class="card-img-top">
+            <div class="card-body">
+                <h6 class="card-title">@ViewBag.doc_data[index].name_doc</h6>
+            </div>
+
+        </div>
+    </a>}
+     else
+     if (@ViewBag.doc_data[index].type_doc=="docx")
+    {<a class="cards" href="data:application/docx;base64,@ViewBag.doc_data[index].base64" download="@ViewBag.doc_data[index].name_doc" style="float:left">
+
+        <div class="card" style="width: 10rem;">
+
+            <img src="/icon/pdf_icon.png" class="card-img-top">
+            <div class="card-body">
+                <h6 class="card-title">@ViewBag.doc_data[index].name_doc</h6>
+            </div>
+
+        </div>
+    </a>}
+     else
+     if (@ViewBag.doc_data[index].type_doc=="xlsx")
+    {<a class="cards" href="data:application/xlsx;base64,@ViewBag.doc_data[index].base64" download="@ViewBag.doc_data[index].name_doc" style="float:left">
+
+        <div class="card" style="width: 10rem;">
+
+            <img src="/icon/pdf_icon.png" class="card-img-top">
+            <div class="card-body">
+                <h6 class="card-title">@ViewBag.doc_data[index].name_doc</h6>
+            </div>
+
+        </div>
+    </a>}
+     else
+     if (@ViewBag.doc_data[index].type_doc=="zip")
+    {<a class="cards" href="data:application/zip;base64,@ViewBag.doc_data[index].base64" download="@ViewBag.doc_data[index].name_doc" style="float:left">
+
+        <div class="card" style="width: 10rem;">
+
+            <img src="/icon/pdf_icon.png" class="card-img-top">
+            <div class="card-body">
+                <h6 class="card-title">@ViewBag.doc_data[index].name_doc</h6>
+            </div>
+
+        </div>
+    </a>}
+
 
 
                     }
 
-                    }*@
+                    }
 
     @if (ViewBag.img != null)
     {
         for (int index = 0; index < ViewBag.img.Count; index++)
         {
-            <a class="cards" href="data:image/png;base64,@ViewBag.img[index]" download="@ViewBag.name_img[index]" style="float:left">
+    <a class="cards" href="data:image/png;base64,@ViewBag.img[index]" download="@ViewBag.name_img[index]" style="float:left">
 
-                <div class="card" style="width:10rem;">
+        <div class="card" style="width:10rem;">
 
-                    <img src="data:image/png;base64,@ViewBag.img[index]" />
-                    <div class="card-body">
-                        <h6 class="card-title">@ViewBag.name_img[index]</h6>
-                    </div>
+            <img src="data:image/png;base64,@ViewBag.img[index]" />
+            <div class="card-body">
+                <h6 class="card-title">@ViewBag.name_img[index]</h6>
+            </div>
 
-                </div>
-            </a>
+        </div>
+    </a>
 
-            @*<a href="data:image/png;base64,@ViewBag.img[index]" download>
-                    <img src="data:image/png;base64,@ViewBag.img[index]" style="width:100px;height:100px;" />
-                </a>*@
 
         }
     }
 
-    @if (ViewBag.video != null)
+    @if (ViewBag.video_data != null)
         {
-            for (int index = 0; index < ViewBag.video.Count; index++)
+            for (int index = 0; index < ViewBag.video_data.Count; index++)
             {
-                <a class="cards" href="data:video/mp4;base64,@ViewBag.video[index]" download="@ViewBag.name_video[index]" style="float:left">
 
-                    <div class="card" style="width: 10rem;">
+    if (@ViewBag.video_data[index].type_video=="mp4")
+    {<a class="cards" href="data:video/mp4;base64,@ViewBag.video_data[index].base64" download="@ViewBag.video_data[index].name_video" style="float:left">
 
-                        <img src="/icon/mp4_icon.png" class="card-img-top">
-                        <div class="card-body">
-                            <h6 class="card-title">@ViewBag.name_video[index]</h6>
-                        </div>
+        <div class="card" style="width: 10rem;">
 
-                    </div>
-                </a>
+            <img src="/icon/mp4_icon.png" class="card-img-top">
+            <div class="card-body">
+                <h6 class="card-title">@ViewBag.video_data[index].name_video</h6>
+            </div>
 
-                @*<a href="data:video/mp4;base64,@ViewBag.audio[index]" download>
-                    <img src="/icon/mp4_icon.png" style="width:100px;height:100px;" />
-                </a>*@
+        </div>
+    </a>}
+    else
+    if (@ViewBag.video_data[index].type_video=="mov"||@ViewBag.video_data[index].type_video=="MOV")
+    {<a class="cards" href="data:video/mov;base64,@ViewBag.video_data[index].base64" download="@ViewBag.video_data[index].name_video" style="float:left">
+
+        <div class="card" style="width: 10rem;">
+
+            <img src="/icon/mov_icon.png" class="card-img-top">
+            <div class="card-body">
+                <h6 class="card-title">@ViewBag.video_data[index].name_video</h6>
+            </div>
+
+        </div>
+    </a>}
+     else
+    if (@ViewBag.video_data[index].type_video=="avi")
+    {<a class="cards" href="data:video/avi;base64,@ViewBag.video_data[index].base64" download="@ViewBag.video_data[index].name_video" style="float:left">
+
+        <div class="card" style="width: 10rem;">
+
+            <img src="/icon/avi_icon.png" class="card-img-top">
+            <div class="card-body">
+                <h6 class="card-title">@ViewBag.video_data[index].name_video</h6>
+            </div>
+
+        </div>
+    </a>}
+     else
+    if (@ViewBag.video_data[index].type_video=="mpg")
+    {<a class="cards" href="data:video/mpg;base64,@ViewBag.video_data[index].base64" download="@ViewBag.video_data[index].name_video" style="float:left">
+
+        <div class="card" style="width: 10rem;">
+
+            <img src="/icon/mpg_icon.png" class="card-img-top">
+            <div class="card-body">
+                <h6 class="card-title">@ViewBag.video_data[index].name_video</h6>
+            </div>
+
+        </div>
+    </a>}
+
+
             }
         }
 
@@ -93,32 +217,27 @@
     {
         for (int index = 0; index < ViewBag.audio.Count; index++)
         {
-           
-            <a class="cards" href="data:audio/mp3;base64,@ViewBag.audio[index]" download="@ViewBag.name_audio[index]" style="float:left">
 
-                    <div class="card" style="width: 10rem;">
+    <a class="cards" href="data:audio/mp3;base64,@ViewBag.audio[index]" download="@ViewBag.name_audio[index]">
 
-                        <img src="/icon/mp3_icon.png" class="card-img-top">
-                        <div class="card-body">
-                            <h6 class="card-title">@ViewBag.name_audio[index]</h6>
-                        </div>
+        <div class="card" style="width: 10rem;">
 
-                    </div>
-                </a>
-            @*<a href="data:audio/mp3;base64,@ViewBag.audio[index]" download="file.mp3">
-                    <div>
-                        <img src="/icon/mp3_icon.png" style="width:100px;height:100px;" />
-                        <h6>@ViewBag.name_audio[index]</h6>
-                    </div>
-                </a>*@
+            <img src="/icon/mp3_icon.png" class="card-img-top">
+            <div class="card-body">
+                <h6 class="card-title">@ViewBag.name_audio[index]</h6>
+            </div>
 
-           
+        </div>
+    </a>
+
         }
     }
-    @*@ViewData["test"]
-        <img src="data:image/png;base64,@ViewBag.test" alt="Red dot"/>*@
+
 
 </body>
 </html>
 
 
+<script>
+
+</script>
