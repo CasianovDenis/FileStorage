@@ -52,7 +52,7 @@
     <div class="card" id="@ViewBag.photo[index]._id"  data-toggle="dropdown" aria-haspopup="true" href="@ViewBag.photo[index].base64" resource="@ViewBag.photo[index].type_image"
           title="@ViewBag.photo[index].name_image" aria-expanded="false">
 
-        <img src="data:image/png;base64,@ViewBag.photo[index].base64"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" />
+        <img class="image_decode" src="data:image/png;base64,@ViewBag.photo[index].base64"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" />
         <div class="card-body">
             <h6 class="card-title">@ViewBag.photo[index].name_image</h6>
             <div class="dropdown">
