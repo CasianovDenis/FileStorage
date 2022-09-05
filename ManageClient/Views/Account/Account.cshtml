@@ -6,6 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <script src="~/lib/jquery/dist/jquery.js"></script>
     <link rel="stylesheet" href="~/css/Sidebar.css" />
     <link rel="stylesheet" href="~/css/Account.css" />
@@ -29,209 +30,98 @@
         </form>
     </div>
     <hr />
-    @if (ViewBag.doc_data != null)
-        {
 
-            for (int index = 0; index < ViewBag.doc_data.Count; index++)
+
+    @if (ViewBag.photo != null)
+        {
+            for (int index = 0; index < ViewBag.photo.Count; index++)
             {
 
-               if (@ViewBag.doc_data[index].type_doc=="pdf")
-    {<a class="cards" href="data:application/pdf;base64,@ViewBag.doc_data[index].base64" download="@ViewBag.doc_data[index].name_doc" style="float:left">
+    @*<a class="cards" href="data:image/png;base64,@ViewBag.photo[index].base64" download="@ViewBag.photo[index].name_image" style="float:left">
 
-        <div class="card" style="width: 10rem;">
+            <div class="card" style="width:10rem;">
 
-            <img src="/icon/pdf_icon.png" class="card-img-top">
-            <div class="card-body">
-                <h6 class="card-title">@ViewBag.doc_data[index].name_doc</h6>
+                <img src="data:image/png;base64,@ViewBag.photo[index].base64" />
+                <div class="card-body">
+                    <h6 class="card-title">@ViewBag.photo[index].name_image</h6>
+                </div>
+
             </div>
+        </a>*@
 
-        </div>
-    </a>}
-    else
-     if (@ViewBag.doc_data[index].type_doc=="txt")
-    {<a class="cards" href="data:application/txt;base64,@ViewBag.doc_data[index].base64" download="@ViewBag.doc_data[index].name_doc" style="float:left">
+    <div class="card" id="@ViewBag.photo[index]._id"  data-toggle="dropdown" aria-haspopup="true" href="@ViewBag.photo[index].base64" resource="@ViewBag.photo[index].type_image"
+          title="@ViewBag.photo[index].name_image" aria-expanded="false">
 
-        <div class="card" style="width: 10rem;">
+        <img src="data:image/png;base64,@ViewBag.photo[index].base64"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" />
+        <div class="card-body">
+            <h6 class="card-title">@ViewBag.photo[index].name_image</h6>
+            <div class="dropdown">
 
-            <img src="/icon/pdf_icon.png" class="card-img-top">
-            <div class="card-body">
-                <h6 class="card-title">@ViewBag.doc_data[index].name_doc</h6>
+                <button  class="dropdown-button"   data-toggle="dropdown" >
+                    <img src="/icon/dropdown_icon.png" style="width:25px;height:25px;" />
+                </button>
+
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item open_file">Open</a>
+                    <a class="dropdown-item delete_file">Delete</a>
+                    <a class="dropdown-item download_file">Download</a>
+                    <a class="dropdown-item close_file">Close</a>
+                </div>
             </div>
-
         </div>
-    </a>}
-    else
-     if (@ViewBag.doc_data[index].type_doc=="odt")
-    {<a class="cards" href="data:application/odt;base64,@ViewBag.doc_data[index].base64" download="@ViewBag.doc_data[index].name_doc" style="float:left">
 
-        <div class="card" style="width: 10rem;">
+    </div>
+    
 
-            <img src="/icon/pdf_icon.png" class="card-img-top">
-            <div class="card-body">
-                <h6 class="card-title">@ViewBag.doc_data[index].name_doc</h6>
-            </div>
-
-        </div>
-    </a>}
-     else
-     if (@ViewBag.doc_data[index].type_doc=="ppt")
-    {<a class="cards" href="data:application/ppt;base64,@ViewBag.doc_data[index].base64" download="@ViewBag.doc_data[index].name_doc" style="float:left">
-
-        <div class="card" style="width: 10rem;">
-
-            <img src="/icon/pdf_icon.png" class="card-img-top">
-            <div class="card-body">
-                <h6 class="card-title">@ViewBag.doc_data[index].name_doc</h6>
-            </div>
-
-        </div>
-    </a>}
-     else
-     if (@ViewBag.doc_data[index].type_doc=="docx")
-    {<a class="cards" href="data:application/docx;base64,@ViewBag.doc_data[index].base64" download="@ViewBag.doc_data[index].name_doc" style="float:left">
-
-        <div class="card" style="width: 10rem;">
-
-            <img src="/icon/pdf_icon.png" class="card-img-top">
-            <div class="card-body">
-                <h6 class="card-title">@ViewBag.doc_data[index].name_doc</h6>
-            </div>
-
-        </div>
-    </a>}
-     else
-     if (@ViewBag.doc_data[index].type_doc=="xlsx")
-    {<a class="cards" href="data:application/xlsx;base64,@ViewBag.doc_data[index].base64" download="@ViewBag.doc_data[index].name_doc" style="float:left">
-
-        <div class="card" style="width: 10rem;">
-
-            <img src="/icon/pdf_icon.png" class="card-img-top">
-            <div class="card-body">
-                <h6 class="card-title">@ViewBag.doc_data[index].name_doc</h6>
-            </div>
-
-        </div>
-    </a>}
-     else
-     if (@ViewBag.doc_data[index].type_doc=="zip")
-    {<a class="cards" href="data:application/zip;base64,@ViewBag.doc_data[index].base64" download="@ViewBag.doc_data[index].name_doc" style="float:left">
-
-        <div class="card" style="width: 10rem;">
-
-            <img src="/icon/pdf_icon.png" class="card-img-top">
-            <div class="card-body">
-                <h6 class="card-title">@ViewBag.doc_data[index].name_doc</h6>
-            </div>
-
-        </div>
-    </a>}
-
-
-
-                    }
-
-                    }
-
-    @if (ViewBag.img != null)
-    {
-        for (int index = 0; index < ViewBag.img.Count; index++)
-        {
-    <a class="cards" href="data:image/png;base64,@ViewBag.img[index]" download="@ViewBag.name_img[index]" style="float:left">
-
-        <div class="card" style="width:10rem;">
-
-            <img src="data:image/png;base64,@ViewBag.img[index]" />
-            <div class="card-body">
-                <h6 class="card-title">@ViewBag.name_img[index]</h6>
-            </div>
-
-        </div>
-    </a>
-
-
-        }
+   
     }
-
-    @if (ViewBag.video_data != null)
-        {
-            for (int index = 0; index < ViewBag.video_data.Count; index++)
-            {
-
-    if (@ViewBag.video_data[index].type_video=="mp4")
-    {<a class="cards" href="data:video/mp4;base64,@ViewBag.video_data[index].base64" download="@ViewBag.video_data[index].name_video" style="float:left">
-
-        <div class="card" style="width: 10rem;">
-
-            <img src="/icon/mp4_icon.png" class="card-img-top">
-            <div class="card-body">
-                <h6 class="card-title">@ViewBag.video_data[index].name_video</h6>
-            </div>
-
-        </div>
-    </a>}
-    else
-    if (@ViewBag.video_data[index].type_video=="mov"||@ViewBag.video_data[index].type_video=="MOV")
-    {<a class="cards" href="data:video/mov;base64,@ViewBag.video_data[index].base64" download="@ViewBag.video_data[index].name_video" style="float:left">
-
-        <div class="card" style="width: 10rem;">
-
-            <img src="/icon/mov_icon.png" class="card-img-top">
-            <div class="card-body">
-                <h6 class="card-title">@ViewBag.video_data[index].name_video</h6>
-            </div>
-
-        </div>
-    </a>}
-     else
-    if (@ViewBag.video_data[index].type_video=="avi")
-    {<a class="cards" href="data:video/avi;base64,@ViewBag.video_data[index].base64" download="@ViewBag.video_data[index].name_video" style="float:left">
-
-        <div class="card" style="width: 10rem;">
-
-            <img src="/icon/avi_icon.png" class="card-img-top">
-            <div class="card-body">
-                <h6 class="card-title">@ViewBag.video_data[index].name_video</h6>
-            </div>
-
-        </div>
-    </a>}
-     else
-    if (@ViewBag.video_data[index].type_video=="mpg")
-    {<a class="cards" href="data:video/mpg;base64,@ViewBag.video_data[index].base64" download="@ViewBag.video_data[index].name_video" style="float:left">
-
-        <div class="card" style="width: 10rem;">
-
-            <img src="/icon/mpg_icon.png" class="card-img-top">
-            <div class="card-body">
-                <h6 class="card-title">@ViewBag.video_data[index].name_video</h6>
-            </div>
-
-        </div>
-    </a>}
-
-
-            }
-        }
-
-    @if (ViewBag.audio != null)
-    {
-        for (int index = 0; index < ViewBag.audio.Count; index++)
-        {
-
-    <a class="cards" href="data:audio/mp3;base64,@ViewBag.audio[index]" download="@ViewBag.name_audio[index]">
-
-        <div class="card" style="width: 10rem;">
-
-            <img src="/icon/mp3_icon.png" class="card-img-top">
-            <div class="card-body">
-                <h6 class="card-title">@ViewBag.name_audio[index]</h6>
-            </div>
-
-        </div>
-    </a>
-
-        }
     }
+    @if (ViewBag.doc_data != null){
+
+    @for (int index = 0; index < ViewBag.doc_data.Count; index++)
+    {
+
+    @*<a class="cards" href="data:application/@ViewBag.doc_data[index].type_doc;base64,@ViewBag.doc_data[index].base64" download="@ViewBag.doc_data[index].name_doc" style="float:left">
+
+            <div class="card" style="width: 10rem;">
+
+                <img src="/icon/file_icon.png" class="card-img-top">
+                <div class="card-body">
+                    <h6 class="card-title">@ViewBag.doc_data[index].name_doc</h6>
+                </div>
+
+            </div>
+        </a>*@
+
+    
+        <div class="card" id="@ViewBag.doc_data[index]._id" href="@ViewBag.doc_data[index].base64" resource="@ViewBag.doc_data[index].type_doc"
+             title="@ViewBag.doc_data[index].name_doc" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+
+            <img src="/icon/file_icon.png" class="card-img-top">
+            <div class="card-body">
+                <h6 class="card-title">@ViewBag.doc_data[index].name_doc</h6>
+                <div class="dropdown">
+
+                    <button class="dropdown-button"  data-toggle="dropdown">
+                        <img src="/icon/dropdown_icon.png" style="width:25px;height:25px;" />
+                    </button>
+
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item open_file">Open</a>
+                        <a class="dropdown-item delete_file">Delete</a>
+                        <a class="dropdown-item download_file">Download</a>
+                        <a class="dropdown-item close_file">Close</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+       
+    
+        }
+        }
+
 
 
 </body>
@@ -239,5 +129,27 @@
 
 
 <script>
+    $(document).ready(function () {
+        var id_file;
+        var url_file;
+        var type_file;
+        var name_file;
+        $(".card").click(function () {
+            
+            id_file = $(this).attr('id');
+            url_file = $(this).attr('href');
+            type_file = $(this).attr('resource');
+            name_file = $(this).attr('title');
+        });
 
+        $(".download_file").click(function () {
+            //window.location.href = 'data:application/'+type_file+';base64,' + url_file;
+            var a = document.createElement("a"); //Create <a>
+            a.href = "data:image/" + type_file + ";base64," + url_file; //Image Base64 Goes here
+            a.download = name_file; //File name Here
+            a.click(); //Downloaded file
+        });
+       
+    });
 </script>
+
