@@ -21,13 +21,13 @@ namespace ManageClient.Controllers
         private IHttpContextAccessor Accessor;
         private readonly ConString _conString;
         private IWebHostEnvironment _appEnvironment;
-        // private readonly MongoDBServices _mongoDBService;
+        
         public AccountController(ConString conection, IHttpContextAccessor _accessor, IWebHostEnvironment appEnvironment)
         {
             _conString = conection;
             this.Accessor = _accessor;
             _appEnvironment = appEnvironment;
-            // _mongoDBService = context;
+            
         }
 
         public IActionResult Account()
@@ -51,49 +51,26 @@ namespace ManageClient.Controllers
             {
                 string type_file = "";
 
-                for (int index = item.ImageName.Length - 3; index < item.ImageName.Length; index++)
+                for (int index = item.ImageName.Length - 4; index < item.ImageName.Length; index++)
                 {
                     type_file = type_file + item.ImageName[index];
                 }
 
-                if (type_file == "png" || type_file == "jpg")
+                if (type_file.Trim('.') == "png" || type_file.Trim('.') == "jpg"|| type_file == "webp" || type_file == "jpeg")
                 {
 
                     var data = new Photo() { _id=item._id,type_image = type_file, name_image = item.ImageName, base64 = item.ImageUrl };
                     photo.Add(data);
                 }
                 else
-                if(type_file.Length==3)
+                
                 {
                     var data = new Docs() { _id = item._id,type_doc = type_file, name_doc = item.ImageName, base64 = item.ImageUrl };
                     document.Add(data);
                 }
             }
 
-            foreach (var item in userdata)
-            {
-                string type_file = "";
-
-                for (int index = item.ImageName.Length - 4; index < item.ImageName.Length; index++)
-                {
-                    type_file = type_file + item.ImageName[index];
-                }
-
-                if (type_file == "webp" || type_file == "jpeg")
-                {
-
-                    var data = new Photo() { _id = item._id, type_image = type_file, name_image = item.ImageName, base64 = item.ImageUrl };
-                    photo.Add(data);
-                }
-                else
-                if(type_file.Length>=4)
-                {
-                    var data = new Docs() { _id = item._id, type_doc = type_file, name_doc = item.ImageName, base64 = item.ImageUrl };
-                    document.Add(data);
-                }
-
-            }
-
+            
             ViewBag.photo = photo;
 
             ViewBag.doc_data = document;
