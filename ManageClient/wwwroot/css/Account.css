@@ -19,17 +19,66 @@
     touch-action: manipulation;
 }
 
-/*#file_btn:hover {
-    box-shadow: rgba(80, 63, 205, 0.5) 0 1px 30px;
-    transition-duration: .1s;
-}*/
 
-@media (min-width: 768px) {
+@media (max-width: 768px) {
     #file_btn {
         padding: 0 2.6rem;
+    }
+    .card {
+       /* width: 2px;*/
+        /*float: left;*/
+        /*display: inline-block;*/
+        /*margin: 30px;*/
+    }
+
+    .dropdown-button {
+        
+        margin-left: 10%;
+    }
+    .card-title{
+        display:inline-block;
+        font-size:100%;
+    }
+    .card-body {
+        width:500%;
+    }
+    img {
+        width: 50px;
     }
 }
 
 .cards{
     margin-left:5px;
 }
+.card {
+   
+    width: 14%;
+    float: left;
+    display: inline-block;
+    margin: 30px;
+}
+img{
+    width:150px;
+    
+}
+.footer {
+    position: fixed;
+   width:0%;
+   height:10%
+}
+.dropdown-menu
+{
+    position:absolute;
+}
+.dropdown-button {
+    background-color: transparent;
+    
+    border-color: transparent;
+    
+    margin-left: 100px;
+}
+
+.dropdown-button:focus{
+    outline:none;
+}
+   
