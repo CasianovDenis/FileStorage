@@ -33,12 +33,20 @@ namespace WebApplication.Models
             gridFS = new GridFSBucket(database);
 
             // обращаемся к коллекции Products
-            // playlist = database.GetCollection<Document>("collectiondata");
+
+         
+            documents = database.GetCollection<Document>("mytable");
+        }
+        
+        // получаем один документ по id
+        public  Document Get(string username)
+           
             documents = database.GetCollection<Document>("mytable");
         }
 
         // получаем один документ по id
         public Document Get(string username)
+
         {
             return documents.Find(new BsonDocument("Username", new string(username))).FirstOrDefault();
         }

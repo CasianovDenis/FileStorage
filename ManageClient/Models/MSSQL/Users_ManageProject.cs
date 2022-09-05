@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ManageClient.Models
 {
-    public class UserData
+    public class Users_ManageProject
     {
         [Key]
         public string Username { get; set; }
@@ -15,5 +15,9 @@ namespace ManageClient.Models
         public string Email { get; set; }
         [Required]
         public string Password { get; set; }
+
+        
+        public string Password_verification { get; set; }
+
     }
 }

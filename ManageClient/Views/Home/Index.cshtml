@@ -5,10 +5,12 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+
     <script src="~/lib/jquery/dist/jquery.js"></script>
     <link href="~/css/Home.css" rel="stylesheet" />
-    
-    
+
+
 </head>
 
 <body>
@@ -16,17 +18,19 @@
         <text>
             Welcome to Drive Online
         </text>
-        <br />
-        Please Log in in you account.
-        <br />
-        If you don't have any account you can create him.
-        <br />
+
+        <p>    Please Log in in you account.</p>
+        
+            
+            <p> If you don't have any account you can create him.</p>
+            
+       
 
         <form asp-action="Redirect_SignIn">
-            <input type="submit"  class="btn btn-primary" style="margin-top:15px;float:left;" value="SignIn" />
+            <input type="submit"  class="btn btn-primary input_button" style="margin-top:15px;float:left;" value="SignIn" />
         </form>
         <form asp-action="Redirect_SignUp">
-            <input type="submit"  class="btn btn-primary" style="margin-top:15px;margin-left:10px;" value="SignUp" />
+            <input type="submit"  class="btn btn-primary " style="margin-top:15px;margin-left:10px;" value="SignUp" />
         </form>
        
     </div>
@@ -34,20 +38,11 @@
 
 
     <div id="MongoDB" style="min-height:400px;">
-        @*@if (ViewBag.test != null)
-            {
-                foreach (var item in ViewBag.test)
-                {
-                    <h1>@item.name</h1>
-                    <h1>@item.surname</h1>
-                }
-            }
-            @ViewData["Error"]*@
 
 
         <img id="start_img" src="/background_img/business--rocket-illustration.webp" style="float:right;" />
 
-        @*<img src="~/background_img/professor-illustration.webp" />*@
+      
     </div>
 
     <div id="text2">
@@ -58,6 +53,8 @@
         <img class="img_size" src="~/icon/cloud_save.png" style="margin-top:10px;" /> All you data is private.
         <br />
         <img class="img_size" src="~/icon/cloud_free.png" style="margin-top:10px;" /> Our application is absolutely free.
+        
+
     </div>
 
     <div id="DriveOnline" style="min-height:300px; ">

@@ -6,6 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <script src="~/lib/jquery/dist/jquery.js"></script>
     <link rel="stylesheet" href="~/css/Sidebar.css" />
     <link rel="stylesheet" href="~/css/Account.css" />
@@ -29,96 +30,126 @@
         </form>
     </div>
     <hr />
-    @*@if (ViewBag.doc != null)
-        {
 
-            for (int index = 0; index < ViewBag.doc.Count; index++)
+
+    @if (ViewBag.photo != null)
+        {
+            for (int index = 0; index < ViewBag.photo.Count; index++)
             {
 
-                <embed src="@ViewBag.doc[index]" />
-                @img src="data:image/png;base64,@ViewBag.doc[index]" style="width:100px;height:100px;" />
-                <iframe src="data:text/html,@ViewBag.doc[index]"> </iframe>
+    @*<a class="cards" href="data:image/png;base64,@ViewBag.photo[index].base64" download="@ViewBag.photo[index].name_image" style="float:left">
 
+            <div class="card" style="width:10rem;">
 
-                    }
-
-                    }*@
-
-    @if (ViewBag.img != null)
-    {
-        for (int index = 0; index < ViewBag.img.Count; index++)
-        {
-            <a class="cards" href="data:image/png;base64,@ViewBag.img[index]" download="@ViewBag.name_img[index]" style="float:left">
-
-                <div class="card" style="width:10rem;">
-
-                    <img src="data:image/png;base64,@ViewBag.img[index]" />
-                    <div class="card-body">
-                        <h6 class="card-title">@ViewBag.name_img[index]</h6>
-                    </div>
-
+                <img src="data:image/png;base64,@ViewBag.photo[index].base64" />
+                <div class="card-body">
+                    <h6 class="card-title">@ViewBag.photo[index].name_image</h6>
                 </div>
-            </a>
 
-            @*<a href="data:image/png;base64,@ViewBag.img[index]" download>
-                    <img src="data:image/png;base64,@ViewBag.img[index]" style="width:100px;height:100px;" />
-                </a>*@
+            </div>
+        </a>*@
 
-        }
+    <div class="card" id="@ViewBag.photo[index]._id"  data-toggle="dropdown" aria-haspopup="true" href="@ViewBag.photo[index].base64" resource="@ViewBag.photo[index].type_image"
+          title="@ViewBag.photo[index].name_image" aria-expanded="false">
+
+        <img class="image_decode" src="data:image/png;base64,@ViewBag.photo[index].base64"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" />
+        <div class="card-body">
+            <h6 class="card-title">@ViewBag.photo[index].name_image</h6>
+            <div class="dropdown">
+
+                <button  class="dropdown-button"   data-toggle="dropdown" >
+                    <img src="/icon/dropdown_icon.png" style="width:25px;height:25px;" />
+                </button>
+
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item open_file">Open</a>
+                    <a class="dropdown-item delete_file">Delete</a>
+                    <a class="dropdown-item download_file">Download</a>
+                    <a class="dropdown-item close_file">Close</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    
+
+   
     }
+    }
+    @if (ViewBag.doc_data != null){
 
-    @if (ViewBag.video != null)
-        {
-            for (int index = 0; index < ViewBag.video.Count; index++)
-            {
-                <a class="cards" href="data:video/mp4;base64,@ViewBag.video[index]" download="@ViewBag.name_video[index]" style="float:left">
-
-                    <div class="card" style="width: 10rem;">
-
-                        <img src="/icon/mp4_icon.png" class="card-img-top">
-                        <div class="card-body">
-                            <h6 class="card-title">@ViewBag.name_video[index]</h6>
-                        </div>
-
-                    </div>
-                </a>
-
-                @*<a href="data:video/mp4;base64,@ViewBag.audio[index]" download>
-                    <img src="/icon/mp4_icon.png" style="width:100px;height:100px;" />
-                </a>*@
-            }
-        }
-
-    @if (ViewBag.audio != null)
+    @for (int index = 0; index < ViewBag.doc_data.Count; index++)
     {
-        for (int index = 0; index < ViewBag.audio.Count; index++)
-        {
-           
-            <a class="cards" href="data:audio/mp3;base64,@ViewBag.audio[index]" download="@ViewBag.name_audio[index]" style="float:left">
 
-                    <div class="card" style="width: 10rem;">
+    @*<a class="cards" href="data:application/@ViewBag.doc_data[index].type_doc;base64,@ViewBag.doc_data[index].base64" download="@ViewBag.doc_data[index].name_doc" style="float:left">
 
-                        <img src="/icon/mp3_icon.png" class="card-img-top">
-                        <div class="card-body">
-                            <h6 class="card-title">@ViewBag.name_audio[index]</h6>
-                        </div>
+            <div class="card" style="width: 10rem;">
 
+                <img src="/icon/file_icon.png" class="card-img-top">
+                <div class="card-body">
+                    <h6 class="card-title">@ViewBag.doc_data[index].name_doc</h6>
+                </div>
+
+            </div>
+        </a>*@
+
+    
+        <div class="card" id="@ViewBag.doc_data[index]._id" href="@ViewBag.doc_data[index].base64" resource="@ViewBag.doc_data[index].type_doc"
+             title="@ViewBag.doc_data[index].name_doc" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+
+            <img src="/icon/file_icon.png" class="card-img-top">
+            <div class="card-body">
+                <h6 class="card-title">@ViewBag.doc_data[index].name_doc</h6>
+                <div class="dropdown">
+
+                    <button class="dropdown-button"  data-toggle="dropdown">
+                        <img src="/icon/dropdown_icon.png" style="width:25px;height:25px;" />
+                    </button>
+
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item open_file">Open</a>
+                        <a class="dropdown-item delete_file">Delete</a>
+                        <a class="dropdown-item download_file">Download</a>
+                        <a class="dropdown-item close_file">Close</a>
                     </div>
-                </a>
-            @*<a href="data:audio/mp3;base64,@ViewBag.audio[index]" download="file.mp3">
-                    <div>
-                        <img src="/icon/mp3_icon.png" style="width:100px;height:100px;" />
-                        <h6>@ViewBag.name_audio[index]</h6>
-                    </div>
-                </a>*@
+                </div>
+            </div>
 
-           
+        </div>
+       
+    
         }
-    }
-    @*@ViewData["test"]
-        <img src="data:image/png;base64,@ViewBag.test" alt="Red dot"/>*@
+        }
+
+
 
 </body>
 </html>
 
+
+<script>
+    $(document).ready(function () {
+        var id_file;
+        var url_file;
+        var type_file;
+        var name_file;
+        $(".card").click(function () {
+            
+            id_file = $(this).attr('id');
+            url_file = $(this).attr('href');
+            type_file = $(this).attr('resource');
+            name_file = $(this).attr('title');
+        });
+
+        $(".download_file").click(function () {
+            //window.location.href = 'data:application/'+type_file+';base64,' + url_file;
+            var a = document.createElement("a"); //Create <a>
+            a.href = "data:image/" + type_file + ";base64," + url_file; //Image Base64 Goes here
+            a.download = name_file; //File name Here
+            a.click(); //Downloaded file
+        });
+       
+    });
+</script>
 

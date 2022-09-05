@@ -28,12 +28,12 @@
                     </a>
 
                     <div class="nav_list">
-                        <img id="user_icon" src="/icon/user_icon.png" style="width: 50px; height: 50px; margin-left:2px;" />
+                        <img id="user_icon" src="/icon/user_icon.png"  />
                         <br />
                         <br />
 
                         <text style="color:white;margin-left:5px;">Name</text>
-                        <span class="nav_name" style="margin-left:12%;color:white;">@ViewBag.Name</span>
+                        <span class="nav_username" style="margin-left:12%;color:white;">@ViewBag.Name</span>
                         <br />
                         <br />
                         <a asp-action="Index" asp-controller="Home" class="nav_link active">
@@ -42,13 +42,13 @@
                         </a>
 
                         <a href="#" class="nav_link active">
-                            <i class='bx bx-slider-alt'></i>
+                            <i class='bx bx-slider-alt nav_icon' ></i>
                             <span class="nav_name">Dashboard</span>
                         </a>
 
                     </div>
                 </div>
-                <a href="#" class="nav_link">
+                <a asp-action="Exit" asp-controller="Account" class="nav_link">
                     <i class='bx bx-log-out nav_icon'></i>
                     <span class="nav_name">SignOut</span>
                 </a>
@@ -69,7 +69,7 @@
     @if (ViewBag.hide_footer != "true")
     {<footer class="border-top footer text-muted">
             <div class="container">
-                &copy; 2022 - ManageClient
+                &copy; 2022 - ManageClient made by Casianov Denis
             </div>
         </footer>}
 

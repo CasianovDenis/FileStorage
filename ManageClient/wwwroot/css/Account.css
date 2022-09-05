@@ -19,17 +19,78 @@
     touch-action: manipulation;
 }
 
-/*#file_btn:hover {
-    box-shadow: rgba(80, 63, 205, 0.5) 0 1px 30px;
-    transition-duration: .1s;
-}*/
 
-@media (min-width: 768px) {
+
+.card {
+    width: 11%;
+    float: left;
+    display: inline-block;
+    margin: 30px;
+}
+
+.card-title {
+    font-size: 80%;
+}
+
+.image_decode {
+    
+    width: 100%;
+}
+
+.card-img-top {
+    width: 100%;
+}
+
+
+
+
+
+
+.dropdown-button {
+    background-color: transparent;
+    border-color: transparent;
+    margin-left: 70px;
+    
+}
+
+    .dropdown-button:focus {
+        outline: none;
+    }
+
+
+.footer {
+    position: fixed;
+    width: 0%;
+    height: 10%
+}
+
+@media (max-width: 768px) {
     #file_btn {
         padding: 0 2.6rem;
     }
+    .card {
+        width: 50%;
+        float: left;
+       /* display: inline-block;*/
+        margin: 0px;
+        
+    }
+
+    
+    .card-title{
+        
+        font-size:80%;
+    }
+    
+    .image_decode {
+        width: 100%;
+    }
+
+}
+.dropdown-button {
+   
+    margin-left: 10px;
 }
 
-.cards{
-    margin-left:5px;
-}
+
+   
