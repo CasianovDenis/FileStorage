@@ -35,7 +35,7 @@ namespace ManageClient.Controllers
         }
 
         [HttpPost]
-        public IActionResult SignIn(UserData user)
+        public IActionResult SignIn(Users_ManageProject user)
         {
             CookieOptions option = new CookieOptions();
             option.Expires = DateTime.Now.AddDays(1);
@@ -43,7 +43,7 @@ namespace ManageClient.Controllers
 
             try
             {
-                var dbdata = _conString.UserData.Single(data => data.Username == user.Username);
+                var dbdata = _conString.Users_ManageProject.Single(data => data.Username == user.Username);
                 ViewBag.dbdata = dbdata;
             }
             catch {
@@ -54,7 +54,7 @@ namespace ManageClient.Controllers
             
             if (ViewBag.dbdata != null)
             {
-                var dbdata = _conString.UserData.Single(data => data.Username == user.Username);
+                var dbdata = _conString.Users_ManageProject.Single(data => data.Username == user.Username);
 
                 if (dbdata.Username == user.Username)
                 {
