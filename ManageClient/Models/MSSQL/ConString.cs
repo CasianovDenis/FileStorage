@@ -14,7 +14,7 @@ namespace ManageClient.Models
 
         }
 
-        public DbSet<UserData> UserData { get; set; }
+        public DbSet<Users_ManageProject> Users_ManageProject { get; set; }
 
     }
 }
