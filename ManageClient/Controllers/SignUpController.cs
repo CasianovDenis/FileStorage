@@ -35,7 +35,7 @@ namespace ManageClient.Controllers
         }
 
         [HttpPost]
-        public IActionResult SignUp(UserData user)
+        public IActionResult SignUp(Users_ManageProject user)
         {
 
             ValidationUserData validationRules = new ValidationUserData(user);
@@ -55,29 +55,30 @@ namespace ManageClient.Controllers
             
             try
             {
-                var dbdata = _conString.UserData.Single(data => data.Username == user.Username);
+                var dbdata = _conString.Users_ManageProject.Single(data => data.Username == user.Username);
                 
             }
             catch
             {
                 try
                 {
-                    var dbdata = _conString.UserData.Single(data => data.Email == user.Email);
+                    var dbdata = _conString.Users_ManageProject.Single(data => data.Email == user.Email);
                 }
                 catch
                 {
-                    //if (user.Password == user.Password_verification)
-                    //{
-                    //    UserServices userServices = new UserServices(_conString);
-                    //    userServices.Create(user);
-                    //    ViewData["Succes_create"] = "User was created succesfully";
-                    //}
-                    //else
-                    //    ViewData["Error_SignUp"] = "Password do not match";
+                    if (user.Password == user.Password_verification)
+                    {
+                        UserServices userServices = new UserServices(_conString);
+                        user.Password_verification = null;
+                        userServices.Create(user);
+                        ViewData["Succes_create"] = "User was created succesfully";
+                    }
+                    else
+                        ViewData["Error_SignUp"] = "Password do not match";
 
-                    UserServices userServices = new UserServices(_conString);
-                    userServices.Create(user);
-                    ViewData["Succes_create"] = "User was created succesfully";
+                    //UserServices userServices = new UserServices(_conString);
+                    //userServices.Create(user);
+                    //ViewData["Succes_create"] = "User was created succesfully";
                     SignUp();
                     return View();
                 }
