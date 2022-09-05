@@ -30,6 +30,7 @@ namespace ManageClient.Controllers
 
             ViewBag.hide_layout = "true";
             ViewBag.hide_footer = "true";
+           
             return View();
         }
 

@@ -52,11 +52,7 @@ namespace ManageClient.Controllers
                 return View();
             }
 
-            //if (user.Username==""||user.Email==""||user.Password=="")
-            //{
-            //    ViewData["Error_SignUp"] = "";
-            //    SignUp();
-            //}
+            
             try
             {
                 var dbdata = _conString.UserData.Single(data => data.Username == user.Username);
@@ -70,6 +66,15 @@ namespace ManageClient.Controllers
                 }
                 catch
                 {
+                    //if (user.Password == user.Password_verification)
+                    //{
+                    //    UserServices userServices = new UserServices(_conString);
+                    //    userServices.Create(user);
+                    //    ViewData["Succes_create"] = "User was created succesfully";
+                    //}
+                    //else
+                    //    ViewData["Error_SignUp"] = "Password do not match";
+
                     UserServices userServices = new UserServices(_conString);
                     userServices.Create(user);
                     ViewData["Succes_create"] = "User was created succesfully";
