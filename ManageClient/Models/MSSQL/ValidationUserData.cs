@@ -14,7 +14,7 @@ namespace ManageClient.Models
             RuleFor(customer => usersViewModel.Username).NotNull().WithMessage("Username is required");
             RuleFor(customer => usersViewModel.Email).NotNull().WithMessage("Email is required");
             RuleFor(customer => usersViewModel.Password).NotNull().WithMessage("Field Password is empty");
-          
+            //RuleFor(customer => usersViewModel.Password_verification).NotNull().WithMessage("Field Password is empty");
 
         }
     }
