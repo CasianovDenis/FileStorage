@@ -17,20 +17,7 @@ namespace WebApplication
         {
             CreateHostBuilder(args).Build().Run();
 
-            // var builder = WebApplication.CreateBuilder(args);
-
-            // Add services to the container.
-            //builder.Services.Configure<MongoDBSettings>(
-            //    builder.Configuration.GetSection("MongoDB"));
-
-            //MongoClient client = new MongoClient("ATLAS_URI_HERE");
-
-            //var playlistCollection = client.GetDatabase("sample_mflix").GetCollection<Playlist>("playlist");
-
-            //List<string> movieList = new List<string>();
-            //movieList.Add("1234");
-
-            //playlistCollection.InsertOne(new Playlist("nraboy", movieList));
+           
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
