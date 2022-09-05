@@ -117,8 +117,16 @@ a {
     }
 
 .nav_icon {
-    font-size: 1.25rem
+    width: 100%;
+    margin: 35px;
 }
+
+.nav_name {
+    display: flex;
+    font-size: 80%;
+    position: absolute;
+}
+
 
 .show {
     left: 0
@@ -145,7 +153,18 @@ a {
     height: 100vh
 }
 
+#user_icon {
+    width: 80%;
+    height: 11%;
+   /* margin-left:-1100px;
+    position: absolute;*/
+}
+
+
+
 @media screen and (min-width: 768px) {
+  
+   
     body {
         margin: calc(var(--header-height) + 1rem) 0 0 0;
         padding-left: calc(var(--nav-width) + 2rem)
@@ -177,4 +196,21 @@ a {
     .body-pd {
         padding-left: calc(var(--nav-width) + 188px)
     }
+
+    #user_icon {
+        width: 30%;
+        height: 30%;
+        margin-left: 2px;
+    }
+    .nav_icon {
+        width: 100%;
+        margin: 0px;
+    }
+
+    .nav_name {
+        display: grid;
+        font-size: 80%;
+        position:initial ;
+    }
+
 }

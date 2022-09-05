@@ -20,65 +20,77 @@
 }
 
 
+
+.card {
+    width: 11%;
+    float: left;
+    display: inline-block;
+    margin: 30px;
+}
+
+.card-title {
+    font-size: 80%;
+}
+
+.image_decode {
+    
+    width: 100%;
+}
+
+.card-img-top {
+    width: 100%;
+}
+
+
+
+
+
+
+.dropdown-button {
+    background-color: transparent;
+    border-color: transparent;
+    margin-left: 70px;
+    
+}
+
+    .dropdown-button:focus {
+        outline: none;
+    }
+
+
+.footer {
+    position: fixed;
+    width: 0%;
+    height: 10%
+}
+
 @media (max-width: 768px) {
     #file_btn {
         padding: 0 2.6rem;
     }
     .card {
-       /* width: 2px;*/
-        /*float: left;*/
-        /*display: inline-block;*/
-        /*margin: 30px;*/
-    }
-
-    .dropdown-button {
+        width: 50%;
+        float: left;
+       /* display: inline-block;*/
+        margin: 0px;
         
-        margin-left: 10%;
     }
-    .card-title{
-        display:inline-block;
-        font-size:100%;
-    }
-    .card-body {
-        width:500%;
-    }
-    img {
-        width: 50px;
-    }
-}
 
-.cards{
-    margin-left:5px;
-}
-.card {
-   
-    width: 14%;
-    float: left;
-    display: inline-block;
-    margin: 30px;
-}
-img{
-    width:150px;
     
-}
-.footer {
-    position: fixed;
-   width:0%;
-   height:10%
-}
-.dropdown-menu
-{
-    position:absolute;
+    .card-title{
+        
+        font-size:80%;
+    }
+    
+    .image_decode {
+        width: 100%;
+    }
+
 }
 .dropdown-button {
-    background-color: transparent;
-    
-    border-color: transparent;
-    
-    margin-left: 100px;
+   
+    margin-left: 10px;
 }
 
-.dropdown-button:focus{
-    outline:none;
-}
+
    
