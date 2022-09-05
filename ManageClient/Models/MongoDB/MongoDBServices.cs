@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 
 namespace WebApplication.Models
 {
-    public class MongoDBServices 
+    public class MongoDBServices
     {
-        
+
 
         IGridFSBucket gridFS;   // файловое хранилище
         IMongoCollection<Document> documents; // коллекция в базе данных
@@ -33,12 +33,20 @@ namespace WebApplication.Models
             gridFS = new GridFSBucket(database);
 
             // обращаемся к коллекции Products
-           // playlist = database.GetCollection<Document>("collectiondata");
+
+         
             documents = database.GetCollection<Document>("mytable");
         }
         
         // получаем один документ по id
         public  Document Get(string username)
+           
+            documents = database.GetCollection<Document>("mytable");
+        }
+
+        // получаем один документ по id
+        public Document Get(string username)
+
         {
             return documents.Find(new BsonDocument("Username", new string(username))).FirstOrDefault();
         }
@@ -51,7 +59,7 @@ namespace WebApplication.Models
         // добавление документа
         public async Task Create(Document p)
         {
-            
+
             await documents.InsertOneAsync(p);
         }
 
