@@ -34,6 +34,12 @@
                     $("#back").show();
                     $("#image_controls").attr("src", "data:image/png;base64," + url_file);
                 }
+                else
+                    if (type_file == "pdf" ) {
+                        $("#docs_controls").show();
+                        $("#back").show();
+                        $("#docs_controls").attr("src", "data:application/" + type_file + ";base64," + url_file);
+                    }
                 else {
                     $("#warning_text").show();
                     $("#back").show();
@@ -48,6 +54,7 @@
         $("#audio_controls").hide();
         $("#video_controls").hide();
         $("#warning_text").hide();
+        $("#docs_controls").hide();
         $("#back").hide();
     });
 
@@ -58,6 +65,11 @@
         a.href = "data:image/" + type_file + ";base64," + url_file; //Image Base64 Goes here
         a.download = name_file; //File name Here
         a.click(); //Downloaded file
+
+        //fix bug
+        $(".card").click();
+        $(".dropdown-button").click();
+        
     });
 
     //method for delete file for mongodb
