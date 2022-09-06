@@ -18,18 +18,24 @@
 
         $(".card").hide();
         if (type_file == "mp3" || type_file == "wav") {
+            $("#file_name").show();
+            $("#file_name").text(name_file);
             $("#audio_controls").show();
             $("#back").show();
             $("#audio_controls").attr("src", "data:audio/" + type_file + ";base64," + url_file);
         }
         else
             if (type_file == "avi" || type_file == "mov" || type_file == "mp4" || type_file == "mpeg" || type_file == "MOV") {
+                $("#file_name").show();
+                $("#file_name").text(name_file);
                 $("#video_controls").show();
                 $("#back").show();
                 $("#video_controls").attr("src", "data:video/" + type_file + ";base64," + url_file);
             }
             else
                 if (type_file == "jpg" || type_file == "jpeg" || type_file == "png" || type_file == "gif") {
+                    $("#file_name").show();
+                    $("#file_name").text(name_file);
                     $("#image_controls").show();
                     $("#back").show();
                     $("#image_controls").attr("src", "data:image/png;base64," + url_file);
@@ -50,6 +56,7 @@
     //return after open file
     $("#back").click(function () {
         $(".card").show();
+        $("#file_name").hide();
         $("#image_controls").hide();
         $("#audio_controls").hide();
         $("#video_controls").hide();
