@@ -4,6 +4,7 @@
     var type_file;
     var name_file;
 
+    //script for get data from selected file
     $(".card").click(function () {
 
         id_file = $(this).attr('id');
@@ -12,6 +13,7 @@
         name_file = $(this).attr('title');
     });
 
+    //method for view data from file
     $(".open_file").click(function () {
 
         $(".card").hide();
@@ -39,6 +41,7 @@
 
     });
 
+    //return after open file
     $("#back").click(function () {
         $(".card").show();
         $("#image_controls").hide();
@@ -48,6 +51,7 @@
         $("#back").hide();
     });
 
+    //method for download selected file
     $(".download_file").click(function () {
 
         var a = document.createElement("a"); //Create <a>
@@ -56,6 +60,7 @@
         a.click(); //Downloaded file
     });
 
+    //method for delete file for mongodb
     $(".delete_file").click(function () {
 
         $.post("/Account/DeleteFile", { id: id_file }, function () {
@@ -63,6 +68,8 @@
         });
     });
 
+    
+    //upload button method
     $('#file_btn').click(function () {
         $('#uploadfile').click();
 
