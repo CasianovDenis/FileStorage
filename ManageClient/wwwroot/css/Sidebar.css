@@ -154,10 +154,8 @@ a {
 }
 
 #user_icon {
-    width: 80%;
+    width: 10%;
     height: 11%;
-   /* margin-left:-1100px;
-    position: absolute;*/
 }
 
 
@@ -198,8 +196,8 @@ a {
     }
 
     #user_icon {
-        width: 30%;
-        height: 30%;
+        width: 28%;
+        height: 28%;
         margin-left: 2px;
     }
     .nav_icon {
