@@ -83,6 +83,11 @@
     height: 55%;
 }
 
+#docs_controls{
+    width:90%;
+    height:600px;
+}
+
 /*Adaptive settings for android and small display*/
 @media (max-width: 768px) {
     #file_btn {
@@ -107,6 +112,7 @@
     .dropdown-button {
         margin-left: 70px;
     }
+
 }
 
 
