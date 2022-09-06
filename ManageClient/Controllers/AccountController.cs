@@ -59,13 +59,13 @@ namespace ManageClient.Controllers
                 if (type_file.Trim('.') == "png" || type_file.Trim('.') == "jpg"|| type_file == "webp" || type_file == "jpeg")
                 {
 
-                    var data = new Photo() { _id=item._id,type_image = type_file, name_image = item.ImageName, base64 = item.ImageUrl };
+                    var data = new Photo() { _id=item._id,type_image = type_file.Trim('.'), name_image = item.ImageName, base64 = item.ImageUrl };
                     photo.Add(data);
                 }
                 else
                 
                 {
-                    var data = new Docs() { _id = item._id,type_doc = type_file, name_doc = item.ImageName, base64 = item.ImageUrl };
+                    var data = new Docs() { _id = item._id,type_doc = type_file.Trim('.'), name_doc = item.ImageName, base64 = item.ImageUrl };
                     document.Add(data);
                 }
             }
@@ -118,11 +118,11 @@ namespace ManageClient.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> DeleteAsync(string id_file)
+        public async Task<ActionResult> DeleteFileAsync(string id)
         {
 
             MongoDBServices dBServices = new MongoDBServices();
-           await dBServices.Remove(id_file);
+           await dBServices.Remove(id);
            
             return RedirectToAction("Account", "Account");
         }
