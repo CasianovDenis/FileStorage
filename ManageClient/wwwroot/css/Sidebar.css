@@ -125,6 +125,7 @@ a {
     display: flex;
     font-size: 80%;
     position: absolute;
+    margin-left:2px;
 }
 
 
@@ -154,8 +155,9 @@ a {
 }
 
 #user_icon {
-    width: 10%;
-    height: 11%;
+    width: 1%;
+    height: 1%;
+
 }
 
 
@@ -198,7 +200,7 @@ a {
     #user_icon {
         width: 28%;
         height: 28%;
-        margin-left: 2px;
+        margin-left: 3px;
     }
     .nav_icon {
         width: 100%;
