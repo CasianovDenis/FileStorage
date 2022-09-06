@@ -88,6 +88,21 @@
     height:600px;
 }
 
+/*Load page animation*/
+#loader {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #FFFFFF url('/icon/loading_animation.gif') no-repeat center;
+    z-index: 999;
+}
+#header{
+    display:none;
+}
+#nav-bar {
+    display: none;
+}
+
 /*Adaptive settings for android and small display*/
 @media (max-width: 768px) {
     #file_btn {
