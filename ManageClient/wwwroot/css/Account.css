@@ -23,7 +23,7 @@
 
 /*Style of display data*/
 .card {
-    width: 11%;
+    width: 120px;
     float: left;
     display: inline-block;
     margin: 30px;
