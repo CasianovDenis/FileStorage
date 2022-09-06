@@ -95,7 +95,8 @@
             </div>
 
             //Audio controller for display music
-            <audio id="audio_controls" controls src="data:audio/1;base64,1" style="display:none"></audio>
+             <p id="file_name" style="display:none"></p>
+            <audio id="audio_controls" controls src="data:audio/1;base64,1" style="display:none" ></audio>
 
             //Video controller for display movie
             <video controls id="video_controls" style="display:none">
@@ -109,10 +110,13 @@
             //Display pdf
       <iframe id="docs_controls" src="1" style="display:none"></iframe>
 
+       //Display text with unsupported format for display
                 <p id="warning_text" style="display:none">
                     This File can not display,unsupported format.
                     You can download him on the dashboard.
                 </p>
+
+                //Trigger back
                 <p id="back" style="display:none;cursor:pointer">Back</p>
                 }
                 }
