@@ -66,10 +66,6 @@
         a.download = name_file; //File name Here
         a.click(); //Downloaded file
 
-        //fix bug
-        $(".card").click();
-        $(".dropdown-button").click();
-        
     });
 
     //method for delete file for mongodb
