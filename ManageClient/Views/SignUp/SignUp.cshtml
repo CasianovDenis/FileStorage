@@ -18,66 +18,71 @@
 
 
 </head>
-<body class="img js-fullheight" >
-    <section class="ftco-section">
-        <div class="container">
-            <img src="~/icon/return_arrow_white.png" id="return_arrow" style="width: 50px; height: 50px;
+<body class="img js-fullheight">
+    @* loading page animation *@
+    <div id="loader"> </div>
+
+    @* content page *@
+    <div id="content">
+        <section class="ftco-section">
+            <div class="container">
+                <img src="~/icon/return_arrow_white.png" id="return_arrow" style="width: 50px; height: 50px;
        margin-top: -15%; margin-left: -10%; cursor: pointer;" />
 
-            <div class="row justify-content-center">
-                <div class="col-md-6 col-lg-4">
-                    <div class="login-wrap p-0">
-                        <h3 class="mb-4 text-center">Create account</h3>
-                        <form asp-action="SignUp" class="signin-form">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Username" asp-for="Username">
-                            </div>
-                            <span asp-validation-for="Username" style="color:red;"> </span>
-
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Email" asp-for="Email">
-                            </div>
-                            <span asp-validation-for="Email" style="color:red;"> </span>
-
-                            <div class="form-group">
-                                <input id="password-field" type="password" class="form-control" placeholder="Password"
-                                       asp-for="Password">
-                                <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
-                                <span asp-validation-for="Password" style="color:red;"> </span>
-
-                            </div>
-
-                            <div class="form-group">
-                                <input id="password-field1" type="password" class="form-control" placeholder="Password"
-                                       asp-for="Password_verification">
-                                <span toggle="#password-field1" class="fa fa-fw fa-eye field-icon toggle-password"></span>
-                                <span asp-validation-for="Password_verification" style="color:red;"> </span>
-
-                            </div>
-                            <div class="form-group">
-                                <input type="submit" class="form-control btn btn-primary submit px-3" value="Create" />
-                            </div>
-                            <div class="form-group d-md-flex">
-
-                                <div class="w-50 text-md-right">
-                                    <a asp-action="SignIn" asp-controller="SignIn" style="color: #fff">Already have account</a>
+                <div class="row justify-content-center">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="login-wrap p-0">
+                            <h3 class="mb-4 text-center">Create account</h3>
+                            <form asp-action="SignUp" class="signin-form">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Username" asp-for="Username">
                                 </div>
-                            </div>
-                        </form>
-                        <p style="color:red;">@ViewData["Error_SignUp"]</p>
-                        <p style="color:green;">@ViewData["Succes_create"]</p>
+                                <span asp-validation-for="Username" style="color:red;"> </span>
+
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Email" asp-for="Email">
+                                </div>
+                                <span asp-validation-for="Email" style="color:red;"> </span>
+
+                                <div class="form-group">
+                                    <input id="password-field" type="password" class="form-control" placeholder="Password"
+                                           asp-for="Password">
+                                    <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                                    <span asp-validation-for="Password" style="color:red;"> </span>
+
+                                </div>
+
+                                <div class="form-group">
+                                    <input id="password-field1" type="password" class="form-control" placeholder="Password"
+                                           asp-for="Password_verification">
+                                    <span toggle="#password-field1" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                                    <span asp-validation-for="Password_verification" style="color:red;"> </span>
+
+                                </div>
+                                <div class="form-group">
+                                    <input type="submit" class="form-control btn btn-primary submit px-3" value="Create" />
+                                </div>
+                                <div class="form-group d-md-flex">
+
+                                    <div class="w-50 text-md-right">
+                                        <a asp-action="SignIn" asp-controller="SignIn" style="color: #fff">Already have account</a>
+                                    </div>
+                                </div>
+                            </form>
+                            <p style="color:red;">@ViewData["Error_SignUp"]</p>
+                            <p style="color:green;">@ViewData["Succes_create"]</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <script src="/lib/jquery/dist/jquery.js"></script>
-    <script src="~/js/SignIn.js"></script>
-    <script src="/js/popper.js"></script>
+        <script src="/lib/jquery/dist/jquery.js"></script>
+        <script src="~/js/SignIn.js"></script>
+        <script src="/js/popper.js"></script>
 
-    <script src="/js/Sign_in_up.js"></script>
-
+        <script src="/js/Sign_in_up.js"></script>
+    </div>
 </body>
 </html>
 
