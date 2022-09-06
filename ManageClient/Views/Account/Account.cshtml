@@ -53,7 +53,7 @@
                             <a class="dropdown-item open_file">Open</a>
                             <a class="dropdown-item delete_file">Delete</a>
                             <a class="dropdown-item download_file">Download</a>
-                            
+
                         </div>
                     </div>
                 </div>
@@ -87,32 +87,37 @@
                             <a class="dropdown-item open_file">Open</a>
                             <a class="dropdown-item delete_file">Delete</a>
                             <a class="dropdown-item download_file">Download</a>
-                           
+
                         </div>
                     </div>
                 </div>
 
             </div>
 
+            //Audio controller for display music
             <audio id="audio_controls" controls src="data:audio/1;base64,1" style="display:none"></audio>
 
-            
+            //Video controller for display movie
             <video controls id="video_controls" style="display:none">
                 <source src="data:video/1;base64,1">
-                
+
             </video>
 
+            //Image controller for display selected photo
             <img id="image_controls" src="1" style="display:none" />
 
-            <p id="warning_text" style="display:none">
-                This File can not display,unsupported format.
-                You can download him on the dashboard.
-            </p>
-            <p id="back" style="display:none;cursor:pointer">Back</p>
-        }
-    }
+            //Display pdf
+      <iframe id="docs_controls" src="1" style="display:none"></iframe>
+
+                <p id="warning_text" style="display:none">
+                    This File can not display,unsupported format.
+                    You can download him on the dashboard.
+                </p>
+                <p id="back" style="display:none;cursor:pointer">Back</p>
+                }
+                }
 
 
 
-</body>
+        </body>
 </html>
