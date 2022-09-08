@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 $(document).ready(function () {
-
+   
     $("#nav-bar").show();
     $("#header").show();
 

@@ -70,6 +70,10 @@ namespace ManageClient.Controllers
                     {
                         UserServices userServices = new UserServices(_conString);
                         user.Password_verification = null;
+
+                        string myPasswordEncoded = EncodeTo64(user.Password);
+                        user.Password=myPasswordEncoded;
+
                         userServices.Create(user);
                         ViewData["Succes_create"] = "User was created succesfully";
                     }
@@ -88,6 +92,22 @@ namespace ManageClient.Controllers
             ViewData["Error_SignUp"] = "This user already exist";
             SignUp();
             return View();
+
+        }
+
+        static public string EncodeTo64(string toEncode)
+
+        {
+
+            byte[] toEncodeAsBytes
+
+                  = System.Text.ASCIIEncoding.ASCII.GetBytes(toEncode);
+
+            string returnValue
+
+                  = System.Convert.ToBase64String(toEncodeAsBytes);
+
+            return returnValue;
 
         }
     }

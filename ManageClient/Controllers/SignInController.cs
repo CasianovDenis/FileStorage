@@ -55,10 +55,14 @@ namespace ManageClient.Controllers
             if (ViewBag.dbdata != null)
             {
                 var dbdata = _conString.Users_ManageProject.Single(data => data.Username == user.Username);
+                
+                string myPasswordUnencoded = DecodeFrom64(dbdata.Password);
+
+                
 
                 if (dbdata.Username == user.Username)
                 {
-                    if (dbdata.Password == user.Password)
+                    if (myPasswordUnencoded == user.Password)
                     {
                         Response.Cookies.Append("username", user.Username, option);
                         Response.Cookies.Append("status_account", "online", option);
@@ -86,5 +90,20 @@ namespace ManageClient.Controllers
             return Ok();
         }
 
+        static public string DecodeFrom64(string encodedData)
+
+        {
+
+            byte[] encodedDataAsBytes
+
+                = System.Convert.FromBase64String(encodedData);
+
+            string returnValue =
+
+               System.Text.ASCIIEncoding.ASCII.GetString(encodedDataAsBytes);
+
+            return returnValue;
+
         }
+    }
 }
