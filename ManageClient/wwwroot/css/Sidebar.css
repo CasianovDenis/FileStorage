@@ -160,6 +160,13 @@ a {
 
 }
 
+text{
+    display:none;
+}
+.nav_username {
+    position: absolute;
+    margin-left: -10px;
+} 
 
 
 @media screen and (min-width: 768px) {
@@ -210,7 +217,15 @@ a {
     .nav_name {
         display: grid;
         font-size: 80%;
-        position:initial ;
+        position:initial;
     }
 
+    text {
+        display: initial;
+    }
+
+    .nav_username {
+        position: initial;
+        margin-left: 12%;
+    } 
 }
