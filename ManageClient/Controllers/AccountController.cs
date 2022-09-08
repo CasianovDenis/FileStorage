@@ -34,10 +34,18 @@ namespace ManageClient.Controllers
         {
             string status_account = this.Accessor.HttpContext.Request.Cookies["status_account"];
             string username = this.Accessor.HttpContext.Request.Cookies["username"];
+            string status_remember = this.Accessor.HttpContext.Request.Cookies["remember"];
             ViewBag.Name = username;
             if (status_account == "offline") return RedirectToAction("Index", "Home");
 
+            //update cookie
+            CookieOptions option = new CookieOptions();
+            option.Expires = DateTime.Now.AddDays(1);
+            Response.Cookies.Append("username", username, option);
+            Response.Cookies.Append("status_account", "online", option);           
+            Response.Cookies.Append("remember", status_remember, option);
 
+            //Create page view
             MongoDBServices dBServices = new MongoDBServices();
             var userdata = dBServices.GetAll(username);
 
