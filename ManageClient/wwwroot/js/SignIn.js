@@ -23,10 +23,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 $(document).ready(function () {
+
    
-    $("#nav-bar").show();
-    $("#header").show();
-  
+   
     $('#return_arrow').click(function () {
 
         window.open("/Home/Index", "_self");
