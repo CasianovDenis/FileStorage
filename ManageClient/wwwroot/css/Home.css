@@ -54,7 +54,9 @@ text {
     font-size: 35px;
 }
 
-
+.footer {
+    background-attachment: fixed;
+}
 
 @media (max-width: 768px) {
     #MongoDB {
