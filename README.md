@@ -6,4 +6,3 @@
 - All files,which upload on the site,are stored in free cluster MongoDB.
 - Files is insert in the MongoDB cluster  using library "MongoDB.Bson,MongoDB.Driver,MongoDB.DriverGridFs".
 - ManageClient accept all type of file and can to open some file direct in the website.
--
