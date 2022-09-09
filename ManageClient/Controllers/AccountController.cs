@@ -126,11 +126,11 @@ namespace ManageClient.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> DeleteFileAsync(string id)
+        public ActionResult DeleteFile(string id)
         {
 
             MongoDBServices dBServices = new MongoDBServices();
-           await dBServices.Remove(id);
+            var remove = dBServices.Remove(id);
            
             return RedirectToAction("Account", "Account");
         }
