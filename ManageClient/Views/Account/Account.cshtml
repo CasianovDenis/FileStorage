@@ -1,4 +1,5 @@
 ﻿@model ManageClient.Models.FileModel
+
 @{
     ViewData["Title"] = "Account Page";
 }
@@ -19,7 +20,11 @@
     @* loading page animation *@
     <div id="loader"> </div>
 
-    
+    <div id="delete_loader"> </div>
+
+    <div id="upload_loader"> </div>
+
+
     <div id="content">
         @* Page content *@
         <h3>Select file for upload</h3>
@@ -39,95 +44,97 @@
 
 
         @if (ViewBag.photo != null)
-    {
-        for (int index = 0; index < ViewBag.photo.Count; index++)
         {
+            for (int index = 0; index < ViewBag.photo.Count; index++)
+            {
 
-        <div class="card" id="@ViewBag.photo[index]._id" data-toggle="dropdown" aria-haspopup="true" href="@ViewBag.photo[index].base64"
-             resource="@ViewBag.photo[index].type_image" title="@ViewBag.photo[index].name_image" aria-expanded="false">
+                <div class="card" id="@ViewBag.photo[index]._id" data-toggle="dropdown" aria-haspopup="true" href="@ViewBag.photo[index].base64"
+                     resource="@ViewBag.photo[index].type_image" title="@ViewBag.photo[index].name_image" aria-expanded="false">
 
-            <img class="image_decode" src="data:image/png;base64,@ViewBag.photo[index].base64" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" />
-            <div class="card-body">
-                <h6 class="card-title">@ViewBag.photo[index].name_image</h6>
-                <div class="dropdown">
+                    <img class="image_decode" src="data:image/png;base64,@ViewBag.photo[index].base64" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" />
+                    <div class="card-body">
+                        <h6 class="card-title">@ViewBag.photo[index].name_image</h6>
+                        <div class="dropdown">
 
-                    <button class="dropdown-button" data-toggle="dropdown">
-                        <img src="/icon/dropdown_icon.png" style="width:25px;height:25px;" />
-                    </button>
+                            <button class="dropdown-button" data-toggle="dropdown">
+                                <img src="/icon/dropdown_icon.png" style="width:25px;height:25px;" />
+                            </button>
 
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item open_file">Open</a>
-                        <a class="dropdown-item delete_file">Delete</a>
-                        <a class="dropdown-item download_file">Download</a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item open_file">Open</a>
+                                <a class="dropdown-item delete_file">Delete</a>
+                                <a class="dropdown-item download_file">Download</a>
 
+                            </div>
+                        </div>
                     </div>
+
                 </div>
-            </div>
-
-        </div>
 
 
 
+            }
         }
-    }
         @if (ViewBag.doc_data != null)
-    {
-
-        @for (int index = 0; index < ViewBag.doc_data.Count; index++)
         {
 
-        <div class="card" id="@ViewBag.doc_data[index]._id" href="@ViewBag.doc_data[index].base64" resource="@ViewBag.doc_data[index].type_doc"
-             title="@ViewBag.doc_data[index].name_doc" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            @for (int index = 0; index < ViewBag.doc_data.Count; index++)
+            {
+
+                <div class="card" id="@ViewBag.doc_data[index]._id" href="@ViewBag.doc_data[index].base64" resource="@ViewBag.doc_data[index].type_doc"
+                     title="@ViewBag.doc_data[index].name_doc" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
 
-            <img src="/icon/file_icon.png" class="card-img-top">
-            <div class="card-body">
-                <h6 class="card-title">@ViewBag.doc_data[index].name_doc</h6>
-                <div class="dropdown">
+                    <img src="/icon/file_icon.png" class="card-img-top">
+                    <div class="card-body">
+                        <h6 class="card-title">@ViewBag.doc_data[index].name_doc</h6>
+                        <div class="dropdown">
 
-                    <button class="dropdown-button" data-toggle="dropdown">
-                        <img src="/icon/dropdown_icon.png" style="width:25px;height:25px;" />
-                    </button>
+                            <button class="dropdown-button" data-toggle="dropdown">
+                                <img src="/icon/dropdown_icon.png" style="width:25px;height:25px;" />
+                            </button>
 
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item open_file">Open</a>
-                        <a class="dropdown-item delete_file">Delete</a>
-                        <a class="dropdown-item download_file">Download</a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item open_file">Open</a>
+                                <a class="dropdown-item delete_file">Delete</a>
+                                <a class="dropdown-item download_file">Download</a>
 
+                            </div>
+                        </div>
                     </div>
+
                 </div>
-            </div>
 
-        </div>
+                //Audio controller for display music
+                <p id="file_name" style="display:none"></p>
+                <audio id="audio_controls" controls src="data:audio/1;base64,1" style="display:none"></audio>
 
-            //Audio controller for display music
-        <p id="file_name" style="display:none"></p>
-        <audio id="audio_controls" controls src="data:audio/1;base64,1" style="display:none"></audio>
+                //Video controller for display movie
+                <video controls id="video_controls" style="display:none">
+                    <source src="data:video/1;base64,1">
 
-            //Video controller for display movie
-        <video controls id="video_controls" style="display:none">
-            <source src="data:video/1;base64,1">
+                </video>
 
-        </video>
+                //Image controller for display selected photo
+                <img id="image_controls" src="1" style="display:none" />
 
-            //Image controller for display selected photo
-        <img id="image_controls" src="1" style="display:none" />
+                //Display pdf
+                <iframe id="docs_controls" src="1" style="display:none"></iframe>
 
-            //Display pdf
-        <iframe id="docs_controls" src="1" style="display:none"></iframe>
-
-       //Display text with unsupported format for display
-        <p id="warning_text" style="display:none">
-            This File can not display,unsupported format.
-            You can download him on the dashboard.
-        </p>
+                //Display text with unsupported format for display
+                <p id="warning_text" style="display:none">
+                    This File can not display,unsupported format.
+                    You can download him on the dashboard.
+                </p>
 
                 //Trigger back
-        <p id="back" style="display:none;cursor:pointer">Back</p>
-                }
-                }
+                <p id="back" style="display:none;cursor:pointer">Back</p>
 
 
-        </div>
+            }
+        }
+
+
+    </div>
 </body>
 </html>
