@@ -23,6 +23,7 @@
 
 /*Style of display data*/
 .card {
+  
     width: 125px;
     float: left;
     display: inline-block;
@@ -98,6 +99,30 @@
     background: #FFFFFF url('/icon/loading_animation.gif') no-repeat center;
     z-index: 999;
 }
+
+#delete_loader {
+    position: fixed;
+    display:none;
+    margin-left: -50%;
+    margin-top: -10%;
+    width: 180%;
+    height: 115%;
+    background: #FFFFFF url('/icon/delete_animation.gif') no-repeat center;
+    z-index: 999;
+}
+
+#upload_loader {
+    position: fixed;
+    display: none;
+    margin-left: -50%;
+    margin-top: -10%;
+    width: 180%;
+    height: 115%;
+    background: #FFFFFF url('/icon/upload_loader.gif') no-repeat center;
+    z-index: 999;
+}
+
+
 #header{
     display:none;
 }
@@ -105,6 +130,9 @@
     display: none;
 }
 
+#content{
+    display:inline-block;
+}
 /*Adaptive settings for android and small display*/
 @media (max-width: 768px) {
     #file_btn {
@@ -112,7 +140,7 @@
     }
 
     .card {
-        width: 50%;
+        width: 50%;     
         float: left;
         margin: 0px;
     }
