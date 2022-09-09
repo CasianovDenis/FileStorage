@@ -24,7 +24,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 $(document).ready(function () {
-   
+    
+
     $("#nav-bar").show();
     $("#header").show();
 
@@ -101,13 +102,22 @@ $(document).ready(function () {
         a.href = "data:image/" + type_file + ";base64," + url_file; //Image Base64 Goes here
         a.download = name_file; //File name Here
         a.click(); //Downloaded file
-
+       
     });
 
     //method for delete file for mongodb
     $(".delete_file").click(function () {
 
+        $("#nav-bar").hide();
+        $("#header").hide();
+        $(".card").hide();
+        $("#content").hide(); 
+        $(".footer").hide();
+
+        $("#delete_loader").show();
+
         $.post("/Account/DeleteFile", { id: id_file }, function () {
+           
             location.reload(true);
         });
     });
@@ -115,10 +125,23 @@ $(document).ready(function () {
     
     //upload button method
     $('#file_btn').click(function () {
+
+        
         $('#uploadfile').click();
+ 
 
         $("#uploadfile").on('change', function () {
+            
+            $("#nav-bar").hide();
+            $("#header").hide();
+            $(".card").hide();
+            $("#content").hide();
+            $(".footer").hide();
+
+            $("#upload_loader").show();
+
             $('#upload_input').click();
+
         });
         
     });
