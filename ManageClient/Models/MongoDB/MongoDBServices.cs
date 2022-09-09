@@ -20,13 +20,13 @@ namespace WebApplication.Models
         public MongoDBServices()
         {
             // строка подключения
-            //string connectionString = "mongodb://localhost:27017/ManageClient";
-            string connectionString = "mongodb+srv://AngelBenny:alibaba321@manageproject.xl5mycl.mongodb.net/?retryWrites=true&w=majority";
+            string connectionString = "mongodb://localhost:27017/ManageClient";
+           
             var connection = new MongoUrlBuilder(connectionString);
             // получаем клиента для взаимодействия с базой данных
             MongoClient client = new MongoClient(connectionString);
             // получаем доступ к самой базе данных
-            // IMongoDatabase database = client.GetDatabase(connection.DatabaseName);
+           
 
             IMongoDatabase database = client.GetDatabase("ManageProject");
             // получаем доступ к файловому хранилищу
