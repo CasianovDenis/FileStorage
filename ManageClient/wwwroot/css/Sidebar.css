@@ -196,15 +196,18 @@ text{
         padding: 1rem 1rem 0 0
     }
 
+    .show {
+        width: calc(var(--nav-width) + 156  px)
+    }
 
     .body-pd {
         padding-left: calc(var(--nav-width) + 188px)
     }
 
     #user_icon {
-        width: 28%;
-        height: 28%;
-        margin-left: 3px;
+        width: 53px;
+        height: 53px;
+        
     }
     .nav_icon {
         width: 100%;
