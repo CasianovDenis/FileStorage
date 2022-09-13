@@ -71,7 +71,7 @@
     position: fixed;
     width: 0%;
     height: 10%;
-   
+    margin-left:60px;
 }
 
 /*Style of open file */
@@ -159,6 +159,9 @@
         margin-left: 70px;
     }
 
+    .footer {
+        margin-left: -25px;
+    }
 }
 
 
