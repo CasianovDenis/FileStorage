@@ -1,0 +1,83 @@
+﻿@{
+    ViewData["Title"] = "Settings Page";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <link rel="stylesheet" href="~/css/Sidebar.css" />
+    <link rel="stylesheet" href="~/css/Settings.css" />
+    @*<script src="/js/Account.js"></script>*@
+
+
+</head>
+
+
+
+<body>
+
+
+    <div >
+
+        <div class="navigation">
+            <p style="font-size: 20px;margin-left:5px; position:relative; top: 10px">
+                <a asp-action="Account" asp-controller="Account">Dashboard</a> / User / Settings
+            </p>
+        </div>
+
+        
+        
+        <div class="user_data" >
+            <img src="/icon/user_icon.png" class="usericon" />
+            <p class="text_style_data">@ViewBag.dbdata.Username</p>
+            <p class="text_style_data">User</p>
+        </div>
+
+        <div class="user_profile">
+
+            <p class="text_style">Username : @ViewBag.dbdata.Username </p>
+            <partial name="_Modal_username" />
+            <hr />
+
+            <p class="text_style">Email : @ViewBag.dbdata.Email  </p>
+            <partial name="_Modal_email" />
+            <hr />
+
+            <p class="text_style">Password : @ViewBag.dbdata.Password   </p>
+            <partial name="_Modal_password" />
+            <hr />
+        </div>
+        
+    </div>
+</body>
+</html>
+
+
+<script>
+    $(document).ready(function () {
+
+
+        var error_username = "@ViewData["Error_update_username"]";
+
+        var error_email = "@ViewData["Error_update_email"]";
+
+        var error_pass = "@ViewData["Error_update_password"]";
+
+        if (error_username != "") {
+            $("#update_username").click();
+        }
+        else
+            if (error_email != "") {
+                $("#update_email").click();
+            }
+            else
+                if (error_pass != "") {
+                    $("#update_password").click();
+                }
+
+
+
+    });
+</script>
