@@ -1,0 +1,92 @@
+﻿
+/*div style*/
+body{
+    background-color: rgb(41,44,51);
+        
+}
+#header{
+    background-color:rgb(41,44,51);
+}
+.user_data {
+    position: relative;
+    background-color: white;
+    width: 19%;
+    height: 250px;
+    border-radius: 5px;
+    margin-left: 13%;
+    top: 100px;
+}
+
+.user_profile {
+    position: relative;
+    background-color: white;
+    width: 40%;
+    height: 65%;
+    border-radius: 5px;
+    margin-left: 40%;
+    bottom: 160px;
+}
+
+.navigation {
+    position: relative;
+    background-color: white;
+    width: 67%;
+    height: 50px;
+    left: 13%;
+    top: 15%;
+    border-radius: 5px;
+}
+/*image style*/
+.usericon {
+    width: 100px;
+    height: 100px;
+    margin-left: 25%;
+    margin-top: 30px;
+}
+
+
+/*text style*/
+.text_style {
+    position: relative;
+    font-family: 'Times New Roman';
+    font-size: 25px;
+    margin-left: 70px;
+    top: 25px;
+}
+
+.text_style_data {
+    position: relative;
+    font-family: 'Times New Roman';
+    font-size: 25px;
+    margin-left: 70px;
+    top: 25px;
+}
+
+.footer {
+    position: fixed;
+    width: 0%;
+    height: 10%;
+    margin-left: 60px;
+}
+
+@media(max-width:720px) {
+    /*image style*/
+    .user_icon {
+        width: 50%;
+        height: 20%;
+    }
+
+    
+    /*text adaptive*/
+    .text_style {
+        font-size: 15px;
+        right: 20%;
+    }
+
+    .text_style_data {
+        position: center;
+        font-size: 15px;
+        margin-left: 20%;
+    }
+}
+

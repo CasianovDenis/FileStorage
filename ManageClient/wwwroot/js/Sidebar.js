@@ -41,9 +41,17 @@ $(document).ready(function () {
     var click = 0;
     $('#header-toggle').click(function () {
         
-        if (click == 0) { $('#user_icon').css("margin-left", "40%"); click = 1; }
+        if (click == 0) {
+            $('#user_icon').css("margin-left", "40%");
+            $('#header-toggle').css("margin-left", "100px");
+            click = 1;
+        }
         else
-        { $('#user_icon').css("margin-left", "0%"); click = 0; }
+        {
+            $('#user_icon').css("margin-left", "0%");
+            $('#header-toggle').css("margin-left", "10px");
+            click = 0;
+        }
     });
 
         
