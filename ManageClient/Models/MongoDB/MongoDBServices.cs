@@ -20,8 +20,9 @@ namespace WebApplication.Models
         public MongoDBServices()
         {
             // строка подключения
-            string connectionString = "mongodb://localhost:27017/ManageClient";
-           
+            //string connectionString = "mongodb://localhost:27017/ManageClient";
+            string connectionString = "mongodb+srv://AngelBenny:alibaba321@manageproject.xl5mycl.mongodb.net/?retryWrites=true&w=majority";
+
             var connection = new MongoUrlBuilder(connectionString);
             // получаем клиента для взаимодействия с базой данных
             MongoClient client = new MongoClient(connectionString);
@@ -60,5 +61,13 @@ namespace WebApplication.Models
         {
             await documents.DeleteOneAsync(new BsonDocument("_id", new ObjectId(id)));
         }
+
+        public async Task Update(Document doc)
+        {
+            await documents.ReplaceOneAsync(new BsonDocument("_id", new ObjectId(doc._id)), doc);
+
+            
+        }
+
     }
 }
