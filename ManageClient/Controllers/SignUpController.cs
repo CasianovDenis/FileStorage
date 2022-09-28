@@ -99,13 +99,9 @@ namespace ManageClient.Controllers
 
         {
 
-            byte[] toEncodeAsBytes
+            byte[] toEncodeAsBytes= System.Text.ASCIIEncoding.ASCII.GetBytes(toEncode);
 
-                  = System.Text.ASCIIEncoding.ASCII.GetBytes(toEncode);
-
-            string returnValue
-
-                  = System.Convert.ToBase64String(toEncodeAsBytes);
+            string returnValue= System.Convert.ToBase64String(toEncodeAsBytes);
 
             return returnValue;
 
