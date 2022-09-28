@@ -43,7 +43,7 @@ $(document).ready(function () {
         
         if (click == 0) {
             $('#user_icon').css("margin-left", "40%");
-            $('#header-toggle').css("margin-left", "180px");
+            $('#header-toggle').css("margin-left", "100px");
             click = 1;
         }
         else
