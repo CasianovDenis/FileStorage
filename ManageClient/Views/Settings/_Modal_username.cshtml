@@ -1,0 +1,52 @@
+﻿@model ManageClient.Models.MSSQL.TempData
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <link rel="stylesheet" href="~/css/Sidebar.css" />
+    <link rel="stylesheet" href="~/css/Modal.css" />
+
+
+
+</head>
+
+
+
+<body>
+
+    <img src="/icon/edit_icon.png" data-toggle="modal" data-target="#edit_username" class="icon" id="update_username"} />
+
+    <div class="modal fade" id="edit_username" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Update username</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form asp-action="update_username">
+                    <div class="modal-body">
+                        <p> Current Username:</p>
+                        <input type="text"  class="form-control" value="@ViewBag.dbdata.Username" disabled style="width: 40%" />
+                        <br />
+
+                        <p>New Username:</p>
+                        <input type="text" asp-for="NewUsername" class="form-control" style=" width: 40%" />
+                    </div>
+                    <p style="color:red">@ViewData["Error_update_username"]</p>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <input type="submit" class="btn btn-primary" value="Save changes" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+</html>
