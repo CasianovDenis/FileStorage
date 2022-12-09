@@ -5,6 +5,6 @@
 - User data is insert in the DB using EntityFramework.
 - All files,which upload on the site,are stored in free cluster MongoDB.
 - Files is insert in the MongoDB cluster  using library "MongoDB.Bson,MongoDB.Driver,MongoDB.DriverGridFs".
-- ManageClient accept all type of file and can to open some file direct in the website.
+- File storage accept all type of file and can to open some file direct in the website.
 - In this project is use library "FluentValidation" for validation data when user insert data in field.
 - Implemented animation for upload,delete and load page.
